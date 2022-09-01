@@ -1,0 +1,2595 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="Modesty" href="https://hmj-modesty.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="Modesty" href="https://hmj-modesty.github.io/atom.xml"><link rel="alternate" type="application/json" title="Modesty" href="https://hmj-modesty.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><link rel="canonical" href="https://hmj-modesty.github.io/2022/08/16/python%E7%BB%84%E4%BB%B6/"><title>python 组件 | Yume Shoka = Modesty = 轩昂妄想</title><meta name="generator" content="Hexo 6.1.0"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">python 组件</h1><div class="meta"><span class="item" title="创建时间：2022-08-16 10:18:42"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2022-08-16T10:18:42+08:00">2022-08-16</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>71k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>1:05</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Yume Shoka</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li><li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://hmj-modesty.github.io/2022/08/16/python%E7%BB%84%E4%BB%B6/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="Modesty"><meta itemprop="description" content="轩昂妄想, 欢迎来到 Modesty 妄想的 Blog!!!"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="Modesty"></span><div class="body md" itemprop="articleBody"><h2 id="1-生成6位数字随机验证码"><a class="anchor" href="#1-生成6位数字随机验证码">#</a> 1. 生成 6 位数字随机验证码</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> random</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> string</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">def</span> <span class="token function">num_code</span><span class="token punctuation">(</span>length<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token triple-quoted-string string">"""</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    生成长度为length的数字随机验证码</pre></td></tr><tr><td data-num="8"></td><td><pre>    :param length: 验证码长度</pre></td></tr><tr><td data-num="9"></td><td><pre>    :return: 验证码</pre></td></tr><tr><td data-num="10"></td><td><pre>    """</pre></td></tr><tr><td data-num="11"></td><td><pre>    </pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>random<span class="token punctuation">.</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>digits<span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="2md5加密"><a class="anchor" href="#2md5加密">#</a> 2.md5 加密</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span>  hashlib</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># md5 加密</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">def</span> <span class="token function">md5_encrypt</span><span class="token punctuation">(</span>en_str<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token triple-quoted-string string">"""</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    使用md5二次加密生成32位的字符串</pre></td></tr><tr><td data-num="8"></td><td><pre>    :param en_str: 需要加密的字符串</pre></td></tr><tr><td data-num="9"></td><td><pre>    :return: 加密后的字符串</pre></td></tr><tr><td data-num="10"></td><td><pre>    """</pre></td></tr><tr><td data-num="11"></td><td><pre>   </pre></td></tr><tr><td data-num="12"></td><td><pre>    md5 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 使用 MD5 加密模式</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    md5<span class="token punctuation">.</span>update<span class="token punctuation">(</span>en_str<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 将参数字符串传入</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    md5<span class="token punctuation">.</span>update<span class="token punctuation">(</span>md5<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># md5 二次加密</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">return</span> md5<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="3-生成唯一token"><a class="anchor" href="#3-生成唯一token">#</a> 3. 生成唯一 token</h2><pre><code>import uuid
+import  hashlib
+
+def only_token():
+    &quot;&quot;&quot;
+    使用md5加密uuid生成唯一的32位token
+    :return: 加密后的字符串
+    &quot;&quot;&quot;
+md5 = hashlib.md5()  # 使用MD5加密模式
+md5.update(str(uuid.uuid1()).encode('utf-8'))  
+return md5.hexdigest()
+</code></pre><h2 id="4-发送手机验证码"><a class="anchor" href="#4-发送手机验证码">#</a> 4、发送手机验证码</h2><pre><code>#验证码管理表
+class AuthCode(models.Model):
+    name = models.CharField(max_length=10,default=None, null=True, blank=True,verbose_name='姓名')
+    phone = models.CharField(max_length=11, unique=True, verbose_name='手机号')
+    code = models.CharField(max_length=6,verbose_name='验证码')
+    purpose = models.IntegerField(default=0,verbose_name='用途:0-&gt;注册验证 1-&gt;找回密码 2-&gt;其它')
+    sendNum = models.IntegerField(default=0,verbose_name='发送次数')
+    isCanGet = models.BooleanField(default=0,verbose_name='0-&gt;可以获取,1-&gt;不可以获取')
+    recentlySendTime = models.DateTimeField(auto_now_add=True,verbose_name='最近一次发送时间')
+    creation_time = models.DateTimeField(auto_now=True, verbose_name='创建时间')
+
+    class Meta:
+        verbose_name = '手机验证码'
+        verbose_name_plural = verbose_name
+
+</code></pre><h3 id="实现逻辑"><a class="anchor" href="#实现逻辑">#</a> 实现逻辑</h3><pre><code>import http.client
+import urllib
+# 使用互亿无线
+host = &quot;106.ihuyi.com&quot;
+sms_send_uri = &quot;/webservice/sms.php?method=Submit&quot;
+
+# 查看用户名 登录用户中心-&gt;验证码通知短信&gt;产品总览-&gt;API接口信息-&gt;APIID
+account = &quot;你的用户名&quot;
+# 查看密码 登录用户中心-&gt;验证码通知短信&gt;产品总览-&gt;API接口信息-&gt;APIKEY
+password = &quot;你的密码&quot;
+
+
+def send_sms(text, mobile):
+    text = f&quot;您的验证码是：&#123;text&#125;。请不要把验证码泄露给其他人。&quot;
+    params = urllib.parse.urlencode(
+        &#123;'account': account, 'password': password, 'content': text, 'mobile': mobile, 'format': 'json'&#125;)
+    headers = &#123;&quot;Content-type&quot;: &quot;application/x-www-form-urlencoded&quot;, &quot;Accept&quot;: &quot;text/plain&quot;&#125;
+    conn = http.client.HTTPConnection(host, port=80, timeout=30)
+    conn.request(&quot;POST&quot;, sms_send_uri, params, headers)
+    response = conn.getresponse()
+    response_str = response.read()
+    conn.close()
+    return response_str
+
+
+if __name__ == '__main__':
+    mobile = &quot;手机号&quot;
+    text = '123122'
+
+    print(json.loads(send_sms(text, mobile).decode('utf-8')))
+
+</code></pre><h2 id="5-生成二维码"><a class="anchor" href="#5-生成二维码">#</a> 5、生成二维码</h2><pre><code>import qrcode
+import io
+
+def maker_qrcode(url):
+    &quot;&quot;&quot;
+    生成二维码
+    :param url: 需要生成二维码的url
+    :return: 返回图片字节流
+    &quot;&quot;&quot;
+    image = qrcode.make(url)  # 创建二维码片
+
+    buffer = io.BytesIO()
+    # 将图片内容丢入容器
+    image.save(buffer, 'png')
+    # 返回容器内的字节
+    return buffer.getvalue()
+    
+或者
+from .settings import BASE_DIR
+
+def create_qrcode(name, url):
+    &quot;&quot;&quot;
+    生成机器扫码支付二维码
+    :param name: 图片名称
+    :param url: 支付路由
+    :return:
+    &quot;&quot;&quot;
+    img = qrcode.make(url, border=0)  # 创建二维码片
+    save_path = BASE_DIR + '/' + name + '.png'
+    print(save_path)
+    img.save(save_path)
+    return img
+
+
+</code></pre><h2 id="6微信群发"><a class="anchor" href="#6微信群发">#</a> 6. 微信群发</h2><pre><code># coding=utf8
+import itchat, time
+
+itchat.auto_login(True)
+
+SINCERE_WISH = u'祝%s新年快乐！'
+
+friendList = itchat.get_friends(update=True)[35:]
+count = 0
+
+for  index,friend in enumerate(friendList):
+    print(index,friend['DisplayName'],friend['NickName'])
+    itchat.send(SINCERE_WISH % (friend['DisplayName']
+                                or friend['NickName']), friend['UserName'])
+    time.sleep(2)
+    print('备注名称',friend['DisplayName'],'昵称',friend['NickName'],'用户名',friend['UserName'])
+
+print(&quot;----end----&quot;)
+
+&quot;&quot;&quot;
+# 发送文本
+itchat.send('Hello, WeChat!')
+# 发送图片
+itchat.send_image('my_picture.png')
+# 发送视频
+itchat.send_video('my_video.mov')
+# 发送文件
+itchat.send_file('my_file.zip')
+
+&quot;&quot;&quot;
+</code></pre><h2 id="7-微信自动回复"><a class="anchor" href="#7-微信自动回复">#</a> 7、微信自动回复</h2><pre><code># -*- coding=utf-8 -*-
+import requests
+import itchat
+import random
+#图灵机器人
+#http://www.tuling123.com/member/robot/1380138/center/frame.jhtml?page=0&amp;child=0获取apikey
+KEY = '你的KEY'
+
+def get_response(msg):
+    apiUrl = 'http://www.tuling123.com/openapi/api'
+    data = &#123;
+        'key'    : KEY,
+        'info'   : msg,
+        'userid' : 'wechat-robot',
+    &#125;
+    try:
+        r = requests.post(apiUrl, data=data).json()
+        return r.get('text')
+    except:
+        return
+
+@itchat.msg_register(itchat.content.TEXT)
+def tuling_reply(msg):
+    defaultReply = 'I received: ' + msg['Text']
+    robots=['','','']
+    reply = get_response(msg['Text'])+random.choice(robots)
+    return reply or defaultReply
+
+itchat.auto_login(enableCmdQR=False)
+itchat.run()
+</code></pre><h2 id="8-提取django中model中的字段名变成字典-列表"><a class="anchor" href="#8-提取django中model中的字段名变成字典-列表">#</a> 8、提取 Django 中 model 中的字段名变成字典、列表</h2><pre><code>import re
+t = &quot;&quot;&quot;
+    goods_id = models.IntegerField(verbose_name='商品编号')
+    label_code = models.CharField(max_length=20, verbose_name='商品标签')
+&quot;&quot;&quot;
+# 字典
+print(&#123;k:None for k in re.findall('([a-z_A-Z]+)\s=\s',t)&#125;)
+# 列表
+# print([k for k in re.findall('([a-z_A-Z]+)\s=\s',t)])
+
+输出
+&#123;'goods_id': None, 'lable_code': None&#125;
+</code></pre><h2 id="9-数据库中给表创建数据"><a class="anchor" href="#9-数据库中给表创建数据">#</a> 9、数据库中给表创建数据</h2><pre><code>import pymysql
+
+def createData(dataDict,tableName):
+    &quot;&quot;&quot;
+    给数据表创建数据
+    :param dataDict: 字典
+    :param tableName: 表名
+    :return: 
+    &quot;&quot;&quot;
+    #连接数据库
+    conn = pymysql.connect(
+        host='192.168.0.188', #数据库所在地址URL
+        user='root', #用户名
+        password='123456', #密码
+        database='名称', #数据库名称
+        port=3306,  #端口号
+        charset='utf8'
+    )
+    #拿到查询游标
+    cursor = conn.cursor()
+    clos,value = zip(*dataDict.items())
+    sql = &quot;INSERT INTO `%s`(%s) VALUES (%s)&quot; % (tableName,
+                                                ','.join(clos),
+                                                ','.join(['%s'] * len(value))
+                                                )
+    print(sql)
+    cursor.execute(sql, value)
+    conn.commit()
+    cursor.close()
+    conn.close()
+    print('Done')
+</code></pre><h2 id="10捕捉异常"><a class="anchor" href="#10捕捉异常">#</a> 10. 捕捉异常</h2><pre><code>try:
+    pass
+except 异常类型 as e:
+    pass
+finally:
+    pass
+    
+    
+异常类型
+Exception  全部异常
+AttributeError 试图访问一个对象没有的属性，比如foo.x，但是foo没有属性x
+IOError 输入/输出异常；基本上是无法打开文件
+ImportError 无法引入模块或包；基本上是路径问题或名称错误
+IndentationError 语法错误（的子类） ；代码没有正确对齐
+IndexError 下标索引超出序列边界，比如当x只有三个元素，却试图访问x[5]
+KeyError 试图访问字典里不存在的键
+KeyboardInterrupt Ctrl+C被按下
+NameError 使用一个还未被赋予对象的变量
+SyntaxError Python代码非法，代码不能编译(个人认为这是语法错误，写错了）
+TypeError 传入对象类型与要求的不符合
+UnboundLocalError 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的全局变量，导致你以为正在访问它
+ValueError 传入一个调用者不期望的值，即使值的类型是正确的
+
+</code></pre><h2 id="11-获取当前时间"><a class="anchor" href="#11-获取当前时间">#</a> 11、获取当前时间</h2><pre><code>import datetime
+
+current_time = str(datetime.datetime.now())[:19]
+print(current_time)
+
+输出格式如：2018-10-20 10:01:43
+local_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+print(local_time)
+
+</code></pre><h2 id="12-订单编号"><a class="anchor" href="#12-订单编号">#</a> 12、订单编号</h2><pre><code>from random import Random
+import time
+
+def random_str(randomlength=8):
+    str = ''
+    chars = 'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'
+    length = len(chars) - 1
+    random = Random()
+    for i in range(randomlength):
+        str+=chars[random.randint(0, length)]
+    return str
+
+def order_num():
+    &quot;&quot;&quot;
+    生成付款订单号
+    :return:
+    &quot;&quot;&quot;
+    local_time = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
+    result = local_time + random_str(5)
+    return result
+
+
+print(order_num())
+</code></pre><h2 id="13-mysql自动填写当前时间"><a class="anchor" href="#13-mysql自动填写当前时间">#</a> 13、mysql 自动填写当前时间</h2><pre><code>CURRENT_TIMESTAMP
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20190312172747658.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><pre><code>为表添加索引
+
+ALTER table tableName ADD INDEX indexName(columnName)
+
+</code></pre><h2 id="14-drf动态过滤查询"><a class="anchor" href="#14-drf动态过滤查询">#</a> 14、drf 动态过滤查询</h2><pre><code># page.py
+
+from rest_framework.pagination import PageNumberPagination
+
+
+class UserPagination(PageNumberPagination):
+    &quot;&quot;&quot;用户分页器&quot;&quot;&quot;
+    page_size = 10  # 默认的页面数据数量
+    page_query_param = 'page'  # 定制取数据页码key 
+    page_size_query_param = 'page_size'  # 默认取数据页码key 
+    max_page_size = 15   # 数据每页取值的最大上限
+
+
+
+# serializers.py
+
+from rest_framework import serializers
+
+from user.models import UserInfo
+
+class UserSerializers(serializers.ModelSerializer):
+    &quot;&quot;&quot;用户收货地址&quot;&quot;&quot;
+
+    class Meta:
+        model = UserInfo
+	    # 所有字段
+        #fields = '__all__'
+        fields = ['name', 'code', 'title',  'province', 'city',
+                    'quxian', 'address', 'code__gte', 'code__lte']
+        # 显示外键
+        depth = 2
+
+
+# views.py
+class MachineViews(APIView):
+    def get(self, request, *args, **kwargs):
+        # 从前端获取出来的过滤参数，解析成字典传进filter()函数中
+        # 动态过滤，
+        kwargs = &#123;&#125;
+        # 表中的字段名
+        columns = ['name', 'code', 'title',  'province', 'city',
+                    'quxian', 'address', 'code__gte', 'code__lte']
+        for k, v in request.query_params.items():
+            if k not in columns:
+                return Response('参数不对', status=status.HTTP_400_BAD_REQUEST)
+			if v:
+            	kwargs[k] = v
+
+        users = UserInfo.objects.filter(**kwargs)
+        page = UserPagination()
+        page_goods_list = page.paginate_queryset(users, self.request, self)
+        ser = UserSerializers(page_goods_list, many=True)
+        return page.get_paginated_response(ser.data)
+        
+
+</code></pre><h2 id="15-linux后台运行python程序"><a class="anchor" href="#15-linux后台运行python程序">#</a> 15、linux 后台运行 python 程序</h2><pre><code>nohup /home/project_venv/user/bin/python3 -u /home/user/user_server.py &gt;&gt; /home/user/user.log 2&gt;&amp;1 &amp;   
+
+</code></pre><h2 id="16-追加外键"><a class="anchor" href="#16-追加外键">#</a> 16、追加外键</h2><pre><code>ALTER TABLE tb_commentPhoto ADD CONSTRAINT FK_comment_phone
+FOREIGN KEY tb_goodsComment(id) REFERENCES tb_commentPhoto(comment_id);
+
+</code></pre><h2 id="17-写读csv文件查看是否存在若存在就从csv中删除"><a class="anchor" href="#17-写读csv文件查看是否存在若存在就从csv中删除">#</a> 17、写 / 读 CSV 文件，查看是否存在，若存在就从 csv 中删除</h2><pre><code>import csv
+import random
+import string
+
+
+def create_invite_code(random_code_pool=None, length=6, num=10, is_append=False):
+    &quot;&quot;&quot;
+    创建随机邀请码,并写入txt文件
+    :param: random_code_pool 随机邀请码
+    :param: length 邀请码长度
+    :param: num 邀请码个数
+    :param: is_append True追加,False 覆盖
+    :return:
+    &quot;&quot;&quot;
+    if not random_code_pool:
+        code_pool = string.ascii_uppercase + string.digits
+        random_code_pool = []
+        for i in range(num):
+            s = ''
+            for _ in range(length):
+                s += random.choice(code_pool)
+            if s and s not in random_code_pool:
+                random_code_pool.append(s)
+
+    # 写入方法。是追加还是覆盖
+    write_method = 'a+' if is_append else 'w'
+    # 写入文件
+    with open('./invite_code.csv', write_method, newline='') as f:
+        writer = csv.writer(f)
+        for rowData in random_code_pool:
+            # 按行写入
+            writer.writerow((rowData,))
+
+
+def check_invite_code(code):
+    &quot;&quot;&quot;
+    查看邀请码是否存在txt文件中，
+    若存在就返回True，并在txt文件中删除
+    若不存在就返回False
+    :param code:
+    :return:
+    &quot;&quot;&quot;
+    code_pool = []
+    with open('./invite_code.csv', 'r', encoding='utf-8',errors='ignore') as f:
+        allFileInfo = csv.reader(f)
+        for row in allFileInfo:
+            code_pool.append(row[0])
+
+    if code in code_pool:
+        # 删除查询的code
+        code_pool.pop(code_pool.index(code))
+
+        # 重新写入文件
+        create_invite_code(code_pool,is_append=False)
+        return True
+    return False
+
+
+if __name__ == '__main__':
+    # create_invite_code(length=9,num=100)
+    print(check_invite_code('WJ4PSTJG2'))
+
+
+</code></pre><h2 id="18-django中从request获取访问路径"><a class="anchor" href="#18-django中从request获取访问路径">#</a> 18、django 中从 request 获取访问路径</h2><pre><code>print('获取相对路径', request.get_full_path())
+print('获取绝对路径', request.build_absolute_uri())
+print(request.build_absolute_uri('?'))
+print(request.build_absolute_uri('/')[:-1].strip(&quot;/&quot;))
+print(request.build_absolute_uri('/').strip(&quot;/&quot;))
+print(request.build_absolute_uri('/'))
+print('----------')
+print(request.META['HTTP_HOST'])
+print(request.META['PATH_INFO'])
+print(request.META['QUERY_STRING'])
+iphost = request.META.get('REMOTE_ADDR', '')  # 获取访问来源IP
+
+
+# 输出如：
+获取相对路径 /QRcode/?d=1
+获取绝对路径 http://127.0.0.1:8000/QRcode/?d=1
+http://127.0.0.1:8000/QRcode/
+http://127.0.0.1:8000
+http://127.0.0.1:8000
+http://127.0.0.1:8000/
+----------
+127.0.0.1:8000
+/QRcode/
+d=1
+</code></pre><h2 id="19-django收集静态文件"><a class="anchor" href="#19-django收集静态文件">#</a> 19、Django 收集静态文件</h2><pre><code>先在项目根目录下创建一个static文件夹
+然后在settings.py中设置
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+最后执行下面的命令：
+python manage.py collectstatic
+</code></pre><h2 id="20-xadmin插件"><a class="anchor" href="#20-xadmin插件">#</a> 20、xadmin 插件</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vbGFucWllL3AvODM0MDIxNS5odG1s">https://www.cnblogs.com/lanqie/p/8340215.html</span></p><h2 id="21-uwsgi自动重启"><a class="anchor" href="#21-uwsgi自动重启">#</a> 21、uwsgi 自动重启</h2><pre><code>[uwsgi]
+# 使用nginx连接时 使用
+socket=0.0.0.0:2019
+# 直接作为web服务器使用
+#http=0.0.0.1:8000
+# 配置工程目录
+chdir=/home/user
+# 配置项目的wsgi目录。相对于工程目录
+wsgi-file=user/wsgi.py
+virtualenv=/home/project_venv/user
+#配置进程，线程信息
+processes=1
+threads=1
+enable-threads=True
+master=True
+pidfile=uwsgi.pid
+daemonize=uwsgi.log
+#启动uwsgi的用户名和用户组
+uid=root
+gid=root
+#uwsgi自动重启
+py-autoreload=1
+</code></pre><h2 id="22-谷歌浏览器快捷键"><a class="anchor" href="#22-谷歌浏览器快捷键">#</a> 22、谷歌浏览器快捷键</h2><pre><code>浏览器缓存
+
+Ctrl+Shift+Del  清除Google浏览器缓存的快捷键
+
+Ctrl+Shift+R  重新加载当前网页而不使用缓存内容
+
+</code></pre><h2 id="23-git克隆分支"><a class="anchor" href="#23-git克隆分支">#</a> 23、git 克隆分支</h2><pre><code>git clone -b dev 地址 
+</code></pre><h2 id="24-mysql更新语句-新增列-删除列"><a class="anchor" href="#24-mysql更新语句-新增列-删除列">#</a> 24、mysql 更新语句、新增列、删除列</h2><pre><code>update user set name='张三' where id=111
+# 删除
+DELETE FROM table_name [WHERE Clause]
+
+# 增加字段
+alter table 表名 add column 列名 类型;
+# 删除字段
+alter table 表名 dropcolumn 列名 ;
+</code></pre><h2 id="25-删除指定格式的文件"><a class="anchor" href="#25-删除指定格式的文件">#</a> 25、删除指定格式的文件</h2><pre><code>import os
+import re
+
+
+def remove_specified_format_file(file_dir, format_name):
+    &quot;&quot;&quot;
+    删除指定格式的文件
+    :param file_dir: 文件根目录
+    :param format_name: 格式
+    :return:
+    &quot;&quot;&quot;
+    for root, dirs, files in os.walk(file_dir):
+        # print(root) #当前目录路径
+        # print(dirs) #当前路径下所有子目录
+        # print(files) #当前路径下所有非目录子文件
+        for file in files:
+            if re.match(format_name, file):
+                print(os.path.join(root, file))
+                os.remove(os.path.join(root, file))
+
+
+remove_specified_format_file(r'D:\学习\LDC\java', r'\._*')
+</code></pre><h2 id="26-计算文件总数"><a class="anchor" href="#26-计算文件总数">#</a> 26、计算文件总数</h2><pre><code>import os
+
+
+def file_count(file_dir):
+    &quot;&quot;&quot;
+    
+    :param file_dir: 文件根目录
+    :return:
+    &quot;&quot;&quot;
+    count = 0
+    for root, dirs, files in os.walk(file_dir):
+        # print(root) #当前目录路径
+        # print(dirs) #当前路径下所有子目录
+        # print(files) #当前路径下所有非目录子文件
+        count += len(files)
+    return count
+
+
+print(file_count(r'D:\学习\LDC\java\Java学习\newEstore\estore\js'))
+</code></pre><h2 id="27-计算文件夹大小"><a class="anchor" href="#27-计算文件夹大小">#</a> 27、计算文件夹大小</h2><pre><code>import os
+
+def file_size(file_dir):
+    &quot;&quot;&quot;
+    删除指定格式的文件
+    :param file_dir: 文件根目录
+    :return:
+    &quot;&quot;&quot;
+    size = 0
+    for root, dirs, files in os.walk(file_dir):
+        # print(root) #当前目录路径
+        # print(dirs) #当前路径下所有子目录
+        # print(files) #当前路径下所有非目录子文件
+        for file in files:
+            size += os.path.getsize(os.path.join(root, file))
+	# M为单位
+    return size / 1024 / 1024
+
+
+file_name = r'D:\学习'
+print(file_size(file_name))
+</code></pre><h2 id="28-django实现jsonp跨域"><a class="anchor" href="#28-django实现jsonp跨域">#</a> 28、Django 实现 jsonp 跨域</h2><pre><code># html
+$.ajax(&#123;
+                    url: '请求路由',
+                    type: 'GET',
+                    dataType: 'JSONP',
+                    data:&#123;
+                      code: 'yes',
+                    &#125;,
+                    jsonp: 'callback',
+                    success: function(res) &#123;
+                       var selectData = $.parseJSON(res);
+                       alert(selectData);
+                    &#125;,
+                    error: function(err) &#123;
+
+                    &#125;
+                &#125;)
+
+# views.py
+def get(self, request, *args, **kwargs):
+        code = request.GET.get('code', '')
+        # 跨域请求
+        callback = request.GET.get('callback', '')
+        return HttpResponse(&quot;%s('%s')&quot; % (callback, json.dumps(&#123;'code': code&#125;)), status=status.HTTP_200_OK)
+                    
+cors解决跨域
+
+https://www.cnblogs.com/wxiaoyu/p/9578848.html
+</code></pre><h2 id="29-微信获取用户信息"><a class="anchor" href="#29-微信获取用户信息">#</a> 29、微信获取用户信息</h2><p>参考：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTczNTkyMy9hcnRpY2xlL2RldGFpbHMvNzkyMDI1NjM=">https://blog.csdn.net/weixin_39735923/article/details/79202563</span></p><h2 id="30-uwsgi初始配置问题"><a class="anchor" href="#30-uwsgi初始配置问题">#</a> 30、uwsgi 初始配置问题</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTczNTkyMy9hcnRpY2xlL2RldGFpbHMvNzkyMDI1NjM=">https://blog.csdn.net/weixin_39735923/article/details/79202563</span></p><h2 id="31-django中drf序列化"><a class="anchor" href="#31-django中drf序列化">#</a> 31、django 中 drf 序列化</h2><pre><code># 序列化器
+class MsgSerializers(serializers.ModelSerializer):
+    addtime = serializers.DateTimeField(read_only=True, format=&quot;%Y-%m-%d %H:%M:%S&quot;)
+    hasread = serializers.CharField(source='get_hasread_display')
+    msgtype = serializers.CharField(source='get_msgtype_display')
+    class Meta:
+        model = MallMsg
+        # 可以混合使用
+        fields = '__all__'  # '__all__' 所有字段
+        # 数据库层级控制（序列化链表操作）
+        # depth = 1  # 外键层级
+
+
+#分页器
+from rest_framework.pagination import PageNumberPagination
+
+
+class MyLimitOffsetPagination(PageNumberPagination):
+
+    page_size = 3  # 默认的页面数据数量
+    page_query_param = 'page'  # 定制取数据页码key ？
+    page_size_query_param = 'page_size'  # 默认取数据页码key &amp;
+    max_page_size = 15  # 数据每页取值的最大上限
+</code></pre><h2 id="32-第三方库"><a class="anchor" href="#32-第三方库">#</a> 32、第三方库</h2><pre><code>安装openssl
+ pip3 install pyOpenSSL
+</code></pre><h2 id="33-requests请求https携带ca证书"><a class="anchor" href="#33-requests请求https携带ca证书">#</a> 33、requests 请求 https 携带 CA 证书</h2><pre><code>import OpenSSL
+import requests
+import urllib3.contrib.pyopenssl
+
+urllib3.contrib.pyopenssl.inject_into_urllib3()
+
+def p12_to_pem(certname, pwd):
+    &quot;&quot;&quot;
+    从.p12文件中提取pem
+    :param certname:
+    :param pwd:
+    :return:
+    &quot;&quot;&quot;
+    pem_name = certname + &quot;.pem&quot;
+    f_pem = open(pem_name, 'wb')
+    p12file = certname + &quot;.p12&quot;
+    p12 = OpenSSL.crypto.load_pkcs12(open(p12file, 'rb').read(), pwd)
+    f_pem.write(OpenSSL.crypto.dump_privatekey(OpenSSL.crypto.FILETYPE_PEM, p12.get_privatekey()))
+    f_pem.write(OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_PEM, p12.get_certificate()))
+    ca = p12.get_ca_certificates()
+    if ca is not None:
+        for cert in ca:
+            f_pem.write(OpenSSL.crypto.dump_certificate(OpenSSL.crypto.FILETYPE_PEM, cert))
+    f_pem.close()
+    return pem_name
+
+
+def post_cert_request(url, data,header, certname, pwd):
+    &quot;&quot;&quot;
+    使用证书发起https请求
+    :param url:
+    :param data:
+    :param certname:
+    :param pwd:
+    :return:
+    &quot;&quot;&quot;
+    if (certname != &quot;&quot;):
+        cert = p12_to_pem(certname, pwd)
+    else:
+        cert = None
+    r = requests.post(url, header=header, data=data, cert=cert)
+    return r
+</code></pre><h2 id="34-django创建缓存命令"><a class="anchor" href="#34-django创建缓存命令">#</a> 34、django 创建缓存命令</h2><pre><code>python manage.py createcachetable 缓存表名
+</code></pre><h2 id="35-django-更改超级用户密码"><a class="anchor" href="#35-django-更改超级用户密码">#</a> 35、Django 更改超级用户密码</h2><pre><code>在工程文件目录下敲入：
+python manage.py shell
+
+再在python交互界面输入：
+from django.contrib.auth.models import User
+user = User.objects.get(username = '用户名')
+user.set_password('密码')
+user.save()
+</code></pre><h2 id="36-restframe使用缓存"><a class="anchor" href="#36-restframe使用缓存">#</a> 36、restframe 使用缓存</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L09keXNzdWVzX2xlZS9hcnRpY2xlL2RldGFpbHMvODA4NzI1ODY=">https://blog.csdn.net/Odyssues_lee/article/details/80872586</span></p><h2 id="37-数据库"><a class="anchor" href="#37-数据库">#</a> 37、数据库</h2><pre><code>select * from user  where ISNULL(code)
+update user set code='111',info='微信' where ISNULL(code)
+</code></pre><h2 id="38-linux常用命令"><a class="anchor" href="#38-linux常用命令">#</a> 38、linux 常用命令</h2><pre><code>tail -f 日志名  实时监控日志
+tail -f 80_v10.log
+
+netstat -na|grep 80  查看端口tcp连接数
+netstat -na|grep 80 | wc -l 计算端口tcp连接数
+
+ps -ef|grep python  查看有多少python程序在运行
+
+gunzip 2015.csv.gz   # 解压
+unzip 19.zip # 解压zip
+wc -l 2015.csv   # 查看行数
+apt install lrzsz  # 安装
+sz 文件名  # 下载文件
+
+查找文件
+find / -name 文件名
+
+匹配执行过的以find为开头的命令
+history | grep find
+</code></pre><h2 id="39-xadmin禁止增加-删除"><a class="anchor" href="#39-xadmin禁止增加-删除">#</a> 39、xadmin 禁止增加、删除</h2><pre><code># models.py
+# 用户管理
+class UserManage(models.Model):
+    name = models.CharField(max_length=20, verbose_name='用户名')
+    phone = models.CharField(max_length=11, unique=True, verbose_name='手机号')
+    code = models.CharField(max_length=11, unique=True, verbose_name='编号')
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, editable=False, null=True, verbose_name='管理员')
+
+# adminx.py
+# 用户列表
+class UserAdmin(object):
+    list_display = [ 'code', 'phone', 'name',]
+    search_fields = ['code', 'phone']
+    list_filter = ['code', 'phone']
+    list_editable = ['name']  # 数据即时编辑
+    readonly_fields = ['code', 'phone', 'name']  # 只读字段，不能编辑
+    model_icon = 'fa fa-square'
+    model = UserInfo
+    
+    def has_delete_permission(self, *args, **kwargs):
+    	# 禁止删除
+        if args:
+            return True
+        return False
+    
+	def has_add_permission(self,*args,**kwargs):
+		# 禁止增加
+        return False
+        
+    def save_models(self):
+    	# 用户级别设置
+        self.new_obj.user = self.request.user
+        flag = self.org_obj is None and 'create' or 'change'
+        if flag == 'create':
+        	# 对密码字段进行加密
+            self.new_obj.password = encrypt_oracle(self.new_obj.password)
+        elif flag == 'change':
+            if 'password' in self.change_message():
+                self.new_obj.password = encrypt_oracle(self.new_obj.password)
+        else:
+        	pass
+        super().save_models()
+
+xadmin.site.register(UserInfo, UserAdmin)
+</code></pre><h2 id="40-时间格式字符串相减"><a class="anchor" href="#40-时间格式字符串相减">#</a> 40、时间格式字符串相减</h2><pre><code>import datetime
+import time
+
+start = str(datetime.datetime.now())[:19]
+time.sleep(60)
+end = str(datetime.datetime.now())[:19]
+print(start,end)
+link_start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
+link_end = datetime.datetime.strptime(end, '%Y-%m-%d %H:%M:%S')
+link_min = round((link_end - link_start).seconds / 60, 2)
+print(link_min,'分钟')
+
+</code></pre><h2 id="41-显示循环进度条"><a class="anchor" href="#41-显示循环进度条">#</a> 41、显示循环进度条</h2><p>参考：<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plamlhbmxpL2FydGljbGUvZGV0YWlscy83NzkxNTc1MQ==">https://blog.csdn.net/zejianli/article/details/77915751</span></p><pre><code>from tqdm import tqdm,trange
+from time import sleep
+text = &quot;&quot;
+for char in tqdm([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]):
+    text = text + char
+    sleep(1)
+    
+    
+# 方式二
+import time
+
+
+def process_bar(percent, index, total,start_time, start_str='', end_str='', total_length=100):
+    # 进度条
+    percent_length = int(percent)
+    bar = '\r' + start_str + ('\033[1;31;41m \033[0m' * percent_length + '\033[1;37;47m \033[0m' * (
+                total_length - percent_length)) + f'  &#123;round(index / total * 100, 2)&#125;%  ' + f' &#123;index&#125;|&#123;end_str&#125;'+ f'   |已进行时间: &#123;round(time.time() - start_time, 2)&#125;秒'
+
+    print(bar, end='', flush=True)
+
+
+if __name__ == '__main__':
+    data_set = [i for i in range(23)]
+    i = 0
+    start_time = time.time()
+    total = len(data_set)
+    end_str = '&#123;&#125;'.format(total)
+    for data in data_set:
+        time.sleep(1)
+        i += 1
+        process_bar(i * 100 / total, i, total, start_time, start_str='', end_str=end_str, total_length=100)
+
+# 方式三
+import sys
+import time
+
+d = [i for i in range(100)]
+for i in range(len(d)):
+    time.sleep(1)
+    sys.stdout.write('\r&gt;&gt; Downloading  %.2f%%' % (float(i) / float(len(d)) * 100.0))
+sys.stdout.flush()
+
+</code></pre><h2 id="42-把列表中的字典转成csv文件"><a class="anchor" href="#42-把列表中的字典转成csv文件">#</a> 42、把列表中的字典转成 csv 文件</h2><pre><code>import pandas as pd
+lists = [&#123;'a':1,'b':2&#125;,&#123;'a':2,'b':3&#125;]
+df = pd.DataFrame(lists)
+print(df)
+df.to_csv('result2.csv')
+
+</code></pre><h2 id="43-windows添加右键新建markdown文件"><a class="anchor" href="#43-windows添加右键新建markdown文件">#</a> 43、windows 添加右键新建 MarkDown 文件</h2><p>在网上下载 Typora 软件安装后<br>1、在桌面上新建一个 txt 文件，输入以下内容：</p><pre><code>Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\.md\ShellNew]
+&quot;NullFile&quot;=&quot;&quot;
+&quot;FileName&quot;=&quot;template.md&quot;
+</code></pre><p>2、另存为，改后缀为.reg，保存类型为.txt，编码为 Unicode</p><p><img data-src="https://img-blog.csdnimg.cn/20200526232015169.png" alt="在这里插入图片描述"></p><p>3、双击运行，确定，重启电脑，此时在桌面右键就有了新建 md 文件</p><h2 id="44-redis设置值定时过期"><a class="anchor" href="#44-redis设置值定时过期">#</a> 44、redis 设置值定时过期</h2><pre><code>import datetime
+import redis
+
+redis_client = redis.Redis(
+    host='127.0.0.1',
+    port=6379,
+    db=0,
+    password='123456'
+)
+
+def redis_set():
+    &quot;&quot;&quot;
+    redis设置值定时过期
+    :return:
+    &quot;&quot;&quot;
+    global redis_client
+
+    redis_client.set('name','ldc')
+    now = datetime.datetime.now()
+    # 设置‘name’50秒过期
+    expire_time = now + datetime.timedelta(hours=0, minutes=0, seconds=50)
+    redis_client.expireat('name', expire_time)
+
+
+if __name__ == '__main__':
+    redis_set()
+
+</code></pre><h2 id="45-linux根据端口杀进程"><a class="anchor" href="#45-linux根据端口杀进程">#</a> 45、linux 根据端口杀进程</h2><pre><code>import os
+
+
+def killport(port):
+    command = '''kill -9 $(netstat -nlp | grep :''' + str(port) + ''' | awk '&#123;print $7&#125;' | awk -F&quot;/&quot; '&#123; print $1 &#125;')'''
+    os.system(command)
+
+
+# 开始执行
+if __name__ == '__main__':
+    port = 4237
+    killport(port)
+</code></pre><h2 id="46-监控linux网络流量"><a class="anchor" href="#46-监控linux网络流量">#</a> 46、监控 linux 网络流量</h2><pre><code>iftop -n -N -i eth0
+
+
+nethogs eth0
+
+
+vim +/字符串 文件
+
+</code></pre><h2 id="47-win10添加右键打开cmd"><a class="anchor" href="#47-win10添加右键打开cmd">#</a> 47、win10 添加右键打开 cmd</h2><p>通过添加注册表项实现</p><p>win + r 输入 regedit</p><p>找到注册表位置：HKEY_CLASSES_ROOT\Directory\Background\shell\</p><p>右键 “shel” l, 新建 “项”，命名为 “以管理员身份打开 cmd”，</p><p>右键 “以管理员身份打开 cmd”，新建 “DWORD (32 位) 值”，命名为 &quot;ShowBasedOnVelocityId&quot;, 值为 “639bc8”</p><p>右键 “以管理员身份打开 cmd”，新建 “项”，命名为 “command”</p><p>右键 “command”，点击 “默认”，点击 “修改”，填写数值为 cmd.exe/s /k pushd “% V”</p><h2 id="48-xadmin后台无法显示下拉框完整内容"><a class="anchor" href="#48-xadmin后台无法显示下拉框完整内容">#</a> 48、xadmin 后台无法显示下拉框完整内容</h2><p>解决方案 在根目录中找到 /static/xadmin/vendor/selectize/selectize.bootstrap3.css<br>在 331 行后加入 position: static;</p><p><img data-src="https://img-blog.csdnimg.cn/20190704184201572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="49-xadmin单点登录"><a class="anchor" href="#49-xadmin单点登录">#</a> 49、xadmin 单点登录</h2><p>使用中间件实现。</p><p>新建一个 utils.py 文件，存放以下代码：</p><pre><code>    from django.contrib.sessions.models import Session
+    from django.db.models import Q
+    from django.utils import timezone
+    from django.utils.deprecation import MiddlewareMixin
+    
+    
+    class XadminMiddleware(MiddlewareMixin):
+        def process_request(self, request):
+            &quot;&quot;&quot;xadmin后台单点登录&quot;&quot;&quot;
+            PATH_INFO = request.META.get('PATH_INFO', '')
+            if PATH_INFO and 'xadmin' in PATH_INFO:
+                request.session.clear_expired()   # 清除过期的key
+                session_key = request.session.session_key
+                for session in Session.objects.filter(~Q(session_key=session_key), expire_date__gte=timezone.now()):
+                    data = session.get_decoded()
+                    if data.get('_auth_user_id', None) == str(request.user.id):
+                        session.delete()
+
+</code></pre><p>然后在 urls.py 中设置：</p><pre><code>    urlpatterns = [
+    ...
+    re_path('^xadmin/', xadmin.site.urls),
+    ...
+    ]
+</code></pre><p>然后在 settings.py 中注册中间件</p><pre><code>    MIDDLEWARE = [
+    ...
+    
+    'utils.xadminauth.XadminMiddleware',
+    ...
+    ]
+	SESSION_COOKIE_AGE = 1209600  # 设置过期时间
+    SESSION_SAVE_EVERY_REQUEST = Ture  # 每次请求都更新
+
+</code></pre><p>【参考】 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1B5dGhvbl9hbm5pbmc=">https://blog.csdn.net/Python_anning</span></p><h2 id="50-django-restful-多个models数据表序列化合并返回一次请求返回多个序列化器数据"><a class="anchor" href="#50-django-restful-多个models数据表序列化合并返回一次请求返回多个序列化器数据">#</a> 50、Django restful 多个 models 数据表序列化合并返回（一次请求返回多个序列化器数据）</h2><pre><code># 导入第三方包
+pip install django-crispy-forms==1.7.2
+
+# 在settings.py中添加应用
+INSTALLED_APPS = [
+...
+'drf_multiple_model',
+'rest_framework',
+...
+]
+
+# 在views.py中使用
+    from drf_multiple_model.pagination import MultipleModelLimitOffsetPagination
+    from drf_multiple_model.views import ObjectMultipleModelAPIView
+    
+    
+    class LimitPagination(MultipleModelLimitOffsetPagination):
+        # 多个models数据表联合查询，分页，每页限制数据10条
+        default_limit = 10
+        
+    class StudentSerializers(serializers.ModelSerializer):
+        &quot;&quot;&quot;学生表序列化器&quot;&quot;&quot;
+        # merchant = MerchantSerializers()
+        
+        register_time = serializers.DateTimeField(read_only=True, format=&quot;%Y-%m-%d %H:%M:%S&quot;)
+       
+        class Meta:
+            model = Student
+            fields = '__all__'
+    class ClassesSerializers(serializers.ModelSerializer):
+        &quot;&quot;&quot;班级表序列化器&quot;&quot;&quot;
+        # merchant = MerchantSerializers()
+        
+        add_time = serializers.DateTimeField(read_only=True, format=&quot;%Y-%m-%d %H:%M:%S&quot;)
+       
+        class Meta:
+            model = Classes
+            fields = '__all__'
+    
+    class SchoolSerializers(serializers.ModelSerializer):
+        &quot;&quot;&quot;学校表序列化器&quot;&quot;&quot;
+        # merchant = MerchantSerializers()
+        
+        add_time = serializers.DateTimeField(read_only=True, format=&quot;%Y-%m-%d %H:%M:%S&quot;)
+       
+        class Meta:
+            model = School
+            fields = '__all__'      
+            
+    
+    class StudentInfo(ObjectMultipleModelAPIView):
+        # 获取学生信息，班级信息，学校信息
+    
+        def get(self, request, *args, **kwargs):
+            uid = request.GET.get('uid', '')  # 学生id
+            cid = request.GET.get('cid', '')  # 班级id
+            sid = request.GET.get('sid', '')  # 学校id
+            
+            self.querylist = [
+                &#123;'queryset': Student.objects.filter(id=uid).order_by('-id'),
+                    'serializer_class':  StudentSerializers, 'label': 'student', &#125;,
+                &#123;'queryset': Classes.objects.filter(id=cid).order_by('-id'),
+                    'serializer_class':  ClassesSerializers, 'label': 'classes', &#125;,
+                &#123;'queryset': School.objects.filter(id=sid).order_by('-id'),
+                    'serializer_class':  SchoolSerializers, 'label': 'school', &#125;,
+            ]
+    
+            return self.list(request, *args, **kwargs)
+    
+        pagination_class = LimitPagination
+</code></pre><h2 id="51-django序列化器返回外键关联数据"><a class="anchor" href="#51-django序列化器返回外键关联数据">#</a> 51、 Django 序列化器返回外键关联数据</h2><p>通过 related_name='goods_price’把两个表关联起来，当返回 Goods 的信息时也会返回相应的 GoodsPrice 信息</p><pre><code>    class GoodsPriceSerializers(serializers.ModelSerializer):
+        &quot;&quot;&quot;商品价格表序列化器&quot;&quot;&quot;
+        
+        class Meta:
+            model = GoodsPrice
+            fields = ['price']
+    
+    class GoodsSerializers(serializers.ModelSerializer):
+        &quot;&quot;&quot;商品表序列化器&quot;&quot;&quot;
+        
+        goods_price = GoodsPriceSerializers(many=True, read_only=True)
+    
+        class Meta:
+            model = Goods
+            fields = ['title','goods_price']
+            depth = 2
+    
+    class Goods(models.Model):
+        &quot;&quot;&quot;商品表&quot;&quot;&quot;
+        title = models.CharField(max_length=50, verbose_name='商品名称')
+    
+        class Meta:
+            db_table = 'goods'
+            verbose_name = '商品信息表'
+            verbose_name_plural = verbose_name
+    
+        def __str__(self):
+            return self.title
+    
+    class GoodsPrice(models.Model):
+        &quot;&quot;&quot;商品价格表,通过外键关联商品信息表&quot;&quot;&quot;
+    
+        price = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name='售价')
+        goods = models.ForeignKey(to='Goods', related_name='goods_price', on_delete=models.SET_NULL, blank=True, null=True,verbose_name='商品')
+    
+        def __str__(self):
+            return str(self.price)
+    
+        class Meta:
+            managed = True
+            db_table = 'goodsPrice'
+            verbose_name = '商品售价'
+            verbose_name_plural = verbose_name
+</code></pre><h2 id="52-python-django通过user-agent判断请求来源是微信扫一扫或者是支付宝扫一扫"><a class="anchor" href="#52-python-django通过user-agent判断请求来源是微信扫一扫或者是支付宝扫一扫">#</a> 52、python Django 通过 User Agent 判断请求来源是微信扫一扫或者是支付宝扫一扫</h2><pre><code>    class Footest(APIView):
+	    def get(self, request, *args, **kwargs):
+	        # print(request.META)
+	        if 'MicroMessenger' in request.META['HTTP_USER_AGENT']:
+	            return Response(data=&#123;'msg': '访问来源是微信'&#125;)
+	        elif 'AlipayClient' in request.META['HTTP_USER_AGENT']:
+	            return Response(data=&#123;'msg': '访问来源是支付宝'&#125;)
+	        else:
+	            return Response(data=&#123;'msg': '访问来源是其他'&#125;)
+
+</code></pre><p>User Agent 中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本、CPU 类型、浏览器及版本、浏览器渲染引擎、浏览器语言、浏览器插件等。</p><p>浏览器的 UA 字串</p><p>标准格式为： 浏览器标识 (操作系统标识；加密等级标识；浏览器语言) 渲染引擎标识 版本信息</p><p>获取 user-Agent 之后，<br>通过识别 MicroMessenger 或者 AlipayClient 这样的关键字应该就可以判断是微信还是支付宝<br>【参考文章】 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2ZseTkxMDkwNS9hcnRpY2xlL2RldGFpbHMvODI0OTg4MTM/dXRtX3NvdXJjZT1ibG9neGd3ejQ=">https://blog.csdn.net/fly910905/article/details/82498813?utm_source=blogxgwz4</span></p><h2 id="53-xadmin后台集成导入插件导入excel文件"><a class="anchor" href="#53-xadmin后台集成导入插件导入excel文件">#</a> 53、xadmin 后台集成’导入‘插件，导入 excel 文件</h2><p>效果图：</p><p><img data-src="https://img-blog.csdnimg.cn/20190426190357134.png" alt="在这里插入图片描述"></p><p>1、添加</p><p>在虚拟环境根目录 \Lib\site-packages\xadmin\plugins 中添加 excel.py 文件</p><p><img data-src="https://img-blog.csdnimg.cn/20190426190440451.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><pre><code>from xadmin.views import BaseAdminPlugin, ListAdminView
+from django.template import loader
+import xadmin
+
+class ListExcelImportPlugin(BaseAdminPlugin):
+    # 重写init_request
+    import_excel = False
+    def init_request(self, *args, **kwargs):
+        return self.import_excel
+
+    def block_top_toolbar(self, context, nodes):
+        # 这里 xadmin/excel/model_list.top_toolbar.import.html 是自己写的html文件
+      nodes.append(loader.render_to_string(&quot;xadmin/excel/model_list.top_toolbar.import.html&quot;))
+
+xadmin.site.register_plugin(ListExcelImportPlugin, ListAdminView)
+</code></pre><p>在虚拟环境根目录 \Lib\site-packages\xadmin\plugins__init__.py 中</p><pre><code>PLUGINS = (
+...
+    'excel',
+...
+)
+</code></pre><p>2、添加 html 文件</p><p><img data-src="https://img-blog.csdnimg.cn/20190426190455263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>在虚拟环境根目录 \Lib\site-packages\xadmin\templates\xadmin\ 中增加文件夹 excel, 在文件夹中添加 model_list.top_toolbar.import.html 文件</p><pre><code>    &#123;% load i18n %&#125;
+&lt;div class=&quot;btn-group export&quot;&gt;
+    &lt;a class=&quot;dropdown-toggle btn btn-default btn-sm&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;
+        &lt;i class=&quot;icon-share&quot;&gt;&lt;/i&gt; 导入数据 &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
+        &lt;li&gt;&lt;a data-toggle=&quot;modal&quot; data-target=&quot;#export-modal-import-excel&quot;&gt;&lt;i class=&quot;icon-circle-arrow-down&quot;&gt;&lt;/i&gt; 导入
+            Excel&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div id=&quot;export-modal-import-excel&quot; class=&quot;modal fade&quot;&gt;
+        &lt;div class=&quot;modal-dialog&quot;&gt;
+            &lt;div class=&quot;modal-content&quot;&gt;
+                &lt;form method=&quot;post&quot; action=&quot;&quot; enctype=&quot;multipart/form-data&quot;&gt;
+                    &lt;!--&#123;% csrf_token %&#125;--&gt;
+                    &lt;div class=&quot;modal-header&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;×&lt;/button&gt;
+                        &lt;h4 class=&quot;modal-title&quot;&gt;导入 Excel&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-body&quot;&gt;
+                        &lt;input type=&quot;file&quot; onchange=&quot;fileChange(this)&quot; name=&quot;excel&quot; id=&quot;submit_upload&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;modal-footer&quot;&gt;
+                        &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;&#123;% trans "Close" %&#125;&lt;/button&gt;
+                        &lt;button class=&quot;btn btn-success&quot; type=&quot;button&quot; id=&quot;submit_upload_b&quot;&gt;&lt;i class=&quot;icon-share&quot;&gt;&lt;/i&gt; 导入
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;&lt;!-- /.modal-content --&gt;
+        &lt;/div&gt;&lt;!-- /.modal-dalog --&gt;
+    &lt;/div&gt;&lt;!-- /.modal --&gt;
+
+&lt;/div&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function fileChange(target) &#123;
+        //检测上传文件的类型
+        var imgName = document.all.submit_upload.value;
+        var ext, idx;
+        if (imgName == '') &#123;
+            document.all.submit_upload_b.disabled = true;
+            alert(&quot;请选择需要上传的 xls 文件!&quot;);
+            return;
+        &#125; else &#123;
+            idx = imgName.lastIndexOf(&quot;.&quot;);
+            if (idx != -1) &#123;
+                ext = imgName.substr(idx + 1).toUpperCase();
+                ext = ext.toLowerCase();
+
+                if (ext != 'xls' &amp;&amp; ext != 'xlsx') &#123;
+                    document.all.submit_upload_b.disabled = true;
+                    alert(&quot;只能上传 .xls 类型的文件!&quot;);
+                    return;
+                &#125;
+            &#125; else &#123;
+                document.all.submit_upload_b.disabled = true;
+                alert(&quot;只能上传 .xls 类型的文件!&quot;);
+                return;
+            &#125;
+        &#125;
+    &#125;
+
+    $(document).ready(function () &#123;
+
+        $('#submit_upload_b').click(function () &#123;
+            var form_data = new FormData();
+            var file_info = $('#submit_upload')[0].files[0];
+            form_data.append('file', file_info);
+            form_data.append('file_source', $('.breadcrumb li').eq(1).text().trim());
+            var url = window.location.protocol + '//' + window.location.host + '/importkdorderno/'
+            $.ajax(&#123;
+                url: url,
+                type: 'POST',
+                data: form_data,
+                dataType: &quot;json&quot;,
+                beforeSend: function (xhr) &#123;
+                    xhr.setRequestHeader(&quot;X-CSRFToken&quot;, $.getCookie(&quot;csrftoken&quot;))
+                &#125;,
+                processData: false,  // tell jquery not to process the data
+                contentType: false, // tell jquery not to set contentType
+                success: function (res) &#123;
+
+                    alert(res.msg);
+                    window.location.reload();
+                &#125;,
+                error: function (err) &#123;
+                &#125;
+            &#125;);
+        &#125;);
+    &#125;)
+&lt;/script&gt;
+</code></pre><p>​<br>3、在 views.py 处理上传的 excel 文件</p><pre><code>import pandas as pd
+from rest_framework.views import APIView
+
+class ImportKDOrderNo(APIView):
+
+    def post(self, request, *args, **kwargs):
+        file = request.FILES.get('file')
+        # read = InMemoryUploadedFile().open()
+        data = pd.read_excel(file)  # 使用pandas处理excel文件
+		file_source = request.POST.get('file_source', '')  # 文件来源
+		
+        if '订单号' and '物流单号' not in data:
+            return Response(data=&#123;'msg': '文件格式有误，第一行第一列应该为【订单号】，第一行第二列应该为【物流单号】'&#125;)
+        ordernos = data['订单号']
+        logistics = data['物流单号']
+        for i in range(len(ordernos)):
+            print('订单号', ordernos[i], '物流单号', logistics[i])
+          
+        return Response(data=&#123;'msg': '上传成功'&#125;)
+</code></pre><p>4、在 urls.py 中添加访问路由</p><pre><code>from django.urls import path
+from 你的应用名称 import views
+
+app_name = '你的应用名称'
+
+urlpatterns = [
+    # 其他路由
+    ...
+    # 导入物流单号
+    path('importkdorderno/', views.ImportKDOrderNo.as_view(), name='importkdorderno'),
+]
+
+</code></pre><h2 id="54-django中查找今天进账金额"><a class="anchor" href="#54-django中查找今天进账金额">#</a> 54、Django 中查找今天进账金额</h2><p><span class="exturl" data-url="aHR0cDovL3ZpZXdzLnB5">views.py</span></p><pre><code>from datetime import datetime
+class CountFee(APIView):
+	def get(self, request, *args, **kwargs):
+		# 获取当前时间的年月日，然后使用聚合函数添加fee字段的值
+    	year = datetime.now().year
+        month = datetime.now().month
+        day = datetime.now().day
+        count_fees = FeeDetail.objects.filter(addtime__year=year, addtime__month=month, addtime__day=day).aggregate(Sum('fee'))
+        all_fee = count_fees['fee__sum'] if count_fees['fee__sum'] else 0
+        print(all_fee)
+        return Response(&#123;'code': 1, 'msg': 'success', 'data': &#123;'all_fee': all_fee&#125;&#125;)
+</code></pre><h2 id="55-判断是什么系统"><a class="anchor" href="#55-判断是什么系统">#</a> 55、判断是什么系统</h2><pre><code>import platform
+PlATFORM = platform.system()
+if PlATFORM == &quot;Linux&quot;:
+    print('linux')
+else:
+    print('其他') 
+</code></pre><h2 id="56-sql查询"><a class="anchor" href="#56-sql查询">#</a> 56、sql 查询</h2><pre><code># 联合更新
+update malluser set master_master_id=3 where master_id in (select a.id from (select id from  malluser where id like '15%')a) 
+# 统计某字段重复数据
+SELECT phone, COUNT(*) AS sumCount FROM malluser GROUP BY phone HAVING sumCount &gt; 1;
+</code></pre><h2 id="57-xadmin后台删除数据出现错误"><a class="anchor" href="#57-xadmin后台删除数据出现错误">#</a> 57、 xadmin 后台删除数据出现错误</h2><pre><code>    `get_deleted_objects() takes 3 positional arguments but 5 were given`
+</code></pre><p>这是由于 Django2.1 版本和 xadmin 不兼容导致的</p><p>知道虚拟环境 \Lib\site-packages\xadmin\plugins\<span class="exturl" data-url="aHR0cDovL2FjdGlvbnMucHk=">actions.py</span></p><p>修改 93 行，</p><p>把</p><pre><code>deletable_objects, model_count, perms_needed, protected = get_deleted_objects(
+            queryset, self.opts, self.user, self.admin_site, using)
+</code></pre><p>改为</p><pre><code>deletable_objects, model_count, perms_needed, protected = get_deleted_objects(
+            queryset, self.user, self.admin_site)
+</code></pre><p>然后在 adminx.py 文件中对应的模型类中允许删除</p><pre><code>class MaterialAdmin(object):
+    &quot;&quot;&quot;素材库分类&quot;&quot;&quot;
+    list_display = ['id', 'name', 'class_id', 'is_delete', 'addtime']
+  
+    def has_delete_permission(self, *args, **kwargs):
+        return True
+</code></pre><h2 id="58-xdamin限制用户点击"><a class="anchor" href="#58-xdamin限制用户点击">#</a> 58、xdamin 限制用户点击</h2><pre><code>//如果登录z=xadmin后台的账号不是【root】的就不能点击更新操作
+    var master_name = $('#top-nav').find('strong').text();
+        master_name =  master_name.substring(4);
+    if(master_name != 'root')&#123;
+            $(&quot;.grid-item a&quot;).each(function(index, element) &#123;
+                $(this).attr('href','#');
+            &#125;);
+        &#125;
+</code></pre><h2 id="59-获取公众号关注url"><a class="anchor" href="#59-获取公众号关注url">#</a> 59、获取公众号关注 url</h2><p>在微信网页版，打开公众号，点击右上角 “…”，在弹框中选择右下角中间的 “查看历史记录”，然后在弹框中选择左上角倒数第一个，“用默认浏览器打开”，就可以在打开的浏览器中获取该公众号的关注 url，当把这个 url 发给好友时，好友点开的就是去关注公众号的页面。</p><h2 id="60-xadmin后台用户操作表权限"><a class="anchor" href="#60-xadmin后台用户操作表权限">#</a> 60、xadmin 后台用户操作表权限</h2><p>虚拟环境根目录 \Lib\site-packages\xadmin\views\<span class="exturl" data-url="aHR0cDovL2Jhc2UucHk=">base.py</span></p><p>可以找到：</p><p><img data-src="https://img-blog.csdnimg.cn/20190627140512311.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>在项目子应用下的 adminx.py 中使用</p><pre><code>    import xadmin
+    
+    from machine.models import Machine
+    
+    
+    class MachineAdmin(object):
+        list_display = ['code',]  # 显示的字段
+    
+        search_fields = ['code']  # 搜索的字段
+        list_filter = ['code', 'is_delete'] # 过滤的字段
+        ordering = ('-id',) # 按id降序排序
+        list_editable = ['is_delete', ]  # 数据即时编辑
+        list_per_page = 30  # 每页显示数据数量
+        model_icon = 'fa fa-cog fa-spin'  # 左侧显示的小图标
+    
+        def has_delete_permission(self, *args, **kwargs): 
+            # 删除权限
+            if self.request.user.is_superuser:  # 管理员才能增加
+                return True
+            return False
+    
+        def has_add_permission(self, *args, **kwargs):
+            if self.request.user.is_superuser:  # 管理员才能增加
+                return True
+            return False
+    
+        def has_change_permission(self, *args, **kwargs):
+            if self.request.user.is_superuser: # 管理员才能修改
+                return True
+            return False
+    
+        def queryset(self):
+            qs = super(MachineAdmin, self).queryset()
+            if self.request.user.is_superuser:  # 管理员可以查看所有
+                return qs
+            else:
+                # 登录用户只能看到自己修改的数据
+                return qs.filter(master_id=self.request.user.last_name)
+    
+    
+    xadmin.site.register(MallMachine, MallMachineAdmin)
+
+</code></pre><h2 id="61-使用nginx部署项目"><a class="anchor" href="#61-使用nginx部署项目">#</a> 61、使用 nginx 部署项目</h2><p>先在 /etc/nginx/sites-available 中创建一个配置文件，文件名为 test (注意没有后缀):</p><pre><code>    #设定虚拟主机配置
+        server &#123;
+            #侦听80端口
+            listen 80;
+            listen 443 ssl;
+            #定义使用 www.nginx.cn访问
+    		#ssl on;
+            server_name  xxx.xxx.com;
+            #定义服务器的默认网站根目录位置
+            root /root/项目名称;
+    		ssl_session_timeout 5m; 
+            ssl_certificate   /etc/nginx/cert/xxx.pem;
+            ssl_certificate_key  /etc/nginx/cert/xxx.key;
+            ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+            ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+            ssl_prefer_server_ciphers on;
+            #设定本虚拟主机的访问日志
+            #access_log  logs/nginx.access.log  main;
+     
+            #默认请求
+            location / &#123;
+                #倒入了uwsgi的配置
+                include uwsgi_params; 
+    		    client_max_body_size	50m;
+                #连接uwsgi的超时时间
+               # uwsgi_connect_timeout 30; 
+     	    #设定了uwsig服务器位置
+     	    	uwsgi_pass 127.0.0.1:8002;
+            &#125;
+            
+            location /static&#123;
+          	alias /root/项目名称/static;
+            &#125;
+    	location /media &#123;
+    	alias /root/项目名称/media;
+    	&#125;
+     
+    &#125;
+
+</code></pre><p>其中 xxx.xxx.com 表示域名。如果没有 https，就使用 #把 ssl 注释掉就可以了。</p><p>然后把 test 映射到 /etc/nginx/sites-enabled</p><p>命令</p><pre><code>    ln -s /etc/nginx/sites-available/test /etc/nginx/sites-enabled/test
+
+</code></pre><p>即可<br>注意：<br>uwsgi 中配置 listen=1024 时，启动 uwsgi 时可能会报错：</p><pre><code>django + uwsgi + nginx 日志Listen queue size is greater than the system max net.core.somaxconn (128).
+</code></pre><p>解决方法:</p><pre><code>修改系统参数
+
+/proc/sys/net/ipv4/tcp_max_syn_backlog  原来2048    改为8192
+/proc/sys/net/core/somaxconn	原来128     改为262144
+</code></pre><p>重启 nginx</p><pre><code>nginx -s reload
+</code></pre><h2 id="62-xadmin后台发送邮件找回密码"><a class="anchor" href="#62-xadmin后台发送邮件找回密码">#</a> 62、xadmin 后台发送邮件找回密码</h2><p><img data-src="https://img-blog.csdnimg.cn/20190710230444358.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>输入你用户绑定的邮箱</p><p><img data-src="https://img-blog.csdnimg.cn/20190710230454725.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>想要发送邮件，需要在 settings.py 中设置邮件发送器</p><p>settings.py 最下面增加</p><pre><code>    # ------------------------邮箱配置-----------------------------------------
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #把要发送的邮件显示再控制台上，方便调试
+    EMAIL_USE_SSL = True
+    EMAIL_HOST = 'smtp.qq.com'  # 如果是 163 改成 smtp.163.com
+    EMAIL_PORT = 465
+    EMAIL_HOST_USER = '邮箱账号' # 帐号
+    EMAIL_HOST_PASSWORD = '授权码'  # 到邮箱里开通
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+</code></pre><p>由于 django2 与 xadmin 有些地方不兼容，需要修改源码：</p><p>找到虚拟环境根目录 \Lib\site-packages\xadmin\plugins\<span class="exturl" data-url="aHR0cDovL3Bhc3N3b3Jkcy5weQ==">passwords.py</span></p><p>在 passwords.py 文件中大概 79 行，修改为</p><pre><code>    return password_reset_confirm(request=request, uidb36=uidb36, token=token,
+                                          template_name=self.password_reset_confirm_template,
+                                          token_generator=self.password_reset_token_generator,
+                                          set_password_form=self.password_reset_set_form,
+                                          post_reset_redirect=self.get_admin_url('xadmin_password_reset_complete'),
+                                          current_app=self.admin_site.name, extra_context=context).dispatch(request=request,
+                                                                                                            uidb64=uidb36,token=token)
+                 
+
+</code></pre><p>找到虚拟环境根目录 Lib\site-packages\django\contrib\auth\<span class="exturl" data-url="aHR0cDovL3ZpZXdzLnB5">views.py</span></p><p>在 views.py 文件中大概 258 行，增加：</p><pre><code>    # 成功后跳转路由,根据自己实际来定
+    self.success_url = self.request.build_absolute_uri('/') + 'xadmin/'
+
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/2020052620533440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="63-xadmin外键下拉框添加过滤"><a class="anchor" href="#63-xadmin外键下拉框添加过滤">#</a> 63、xadmin 外键下拉框添加过滤</h2><pre><code>
+class MallGoodsAdmin(object):
+    &quot;&quot;&quot;商品管理&quot;&quot;&quot;
+    list_display = ['id', 'show_photo', 'nickname', 'merchant', 'goods_class', 'label',]
+    search_fields = ['nickname']
+    list_filter = ['goods_class', 'label',]
+    model_icon = 'fa fa-bars'
+    list_editable = ['goods_class', ]
+    #,重写虚拟环境根目录下\Lib\site-packages\xadmin\views\edit.py中的formfield_for_dbfield
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        # 对MallGoodsClass这个表项的下拉框选择进行过滤
+        # MallGoods中有一个goods_class商品分类外键MallGoodsClass，过滤掉外键MallGoodsClass中 
+        # master_class为空的值
+        if db_field.name == &quot;goods_class&quot;:
+            kwargs[&quot;queryset&quot;] = MallGoodsClass.objects.filter(master_class__isnull=False)
+            # 对assigned_recipient这个表项的下拉选择进行过滤
+        	return db_field.formfield(**dict(**kwargs))
+        return super().formfield_for_dbfield(db_field, **kwargs)
+
+xadmin.site.register(models.MallGoods, MallGoodsAdmin)
+
+</code></pre><h2 id="64-xadmin即时编辑器去掉空标签"><a class="anchor" href="#64-xadmin即时编辑器去掉空标签">#</a> 64、xadmin 即时编辑器去掉空标签</h2><p><img data-src="https://img-blog.csdnimg.cn/20190716151440115.png" alt="在这里插入图片描述"></p><p>虚拟环境根目录下 \Lib\site-packages\xadmin\plugins\<span class="exturl" data-url="aHR0cDovL2VkaXRhYmxlLnB5">editable.py</span>，在大概</p><p>129 行增加：</p><pre><code>    form.fields[fields[0]].empty_label = None
+
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20190716151459680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="65-用户增加的小组件让其他用户可见"><a class="anchor" href="#65-用户增加的小组件让其他用户可见">#</a> 65、用户增加的小组件，让其他用户可见</h2><p>找到虚拟环境根目录 \Lib\site-packages\xadmin\views\<span class="exturl" data-url="aHR0cDovL2Rhc2hib2FyZC5weQ==">dashboard.py</span></p><p>在 548 行、554 行</p><p><img data-src="https://img-blog.csdnimg.cn/20190723175537371.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>改为：</p><pre><code>    @filter_hook
+        def get_widgets(self):
+    
+            if self.widget_customiz:
+                portal_pos = UserSettings.objects.filter(
+                   key=self.get_portal_key())
+                if len(portal_pos):
+                    portal_pos = portal_pos[0].value
+                    widgets = []
+    
+                    if portal_pos:
+                        user_widgets = dict([(uw.id, uw) for uw in UserWidget.objects.filter(page_id=self.get_page_id())])
+                        for col in portal_pos.split('|'):
+                            ws = []
+                            for wid in col.split(','):
+                                try:
+                                    widget = user_widgets.get(int(wid))
+                                    if widget:
+                                        ws.append(self.get_widget(widget))
+                                except Exception as e:
+                                    import logging
+                                    logging.error(e, exc_info=True)
+                            widgets.append(ws)
+    
+                    return widgets
+    
+            return self.get_init_widget()
+
+
+</code></pre><h2 id="66-pip-install-uwsgi出错"><a class="anchor" href="#66-pip-install-uwsgi出错">#</a> 66、pip install uwsgi 出错</h2><pre><code>plugins/python/uwsgi_python.h:2:20: fatal error: Python.h: No such file or directory
+
+</code></pre><p>首先安装 python3 环境</p><pre><code>apt install python3-dev
+
+</code></pre><p>然后再虚拟环境中</p><pre><code>pip install uwsgi
+</code></pre><h2 id="66-xadmin后台加载数据慢解决方案"><a class="anchor" href="#66-xadmin后台加载数据慢解决方案">#</a> 66、xadmin 后台加载数据慢，解决方案</h2><p>list_filter: 过滤器要慎用，不要使用类似 id 这些数据量大的字段</p><pre><code>    class MallUserAdmin(object):
+        &quot;&quot;&quot;用户管理&quot;&quot;&quot;
+    
+        list_display = ['id', 'tp_icon', 'nickname', 'phone', 'level', 'balance', 'province', 'city', 'quxian']  # 显示字段
+        search_fields = ['id', 'nickname', 'phone']  # 搜索
+        list_filter = ['level', 'province', 'city', 'quxian']  # 过滤器
+        # list_filter = ['id', 'level', 'province', 'city', 'quxian']  # 如果加id，xadmin加载回来的数据就会很慢，所以不要在过滤器上使用id
+        list_per_page = 30  # 默认每页数量
+        model_icon = 'fa fa-users'  # 左侧图标
+        ordering = ['-id']  # 排序
+        readonly_fields = ['subscribe', 'wx_openid', 'phone']  # 只读字段
+        is_addbalance = True   # 加载自定义的插件
+        relfield_style = 'fk-ajax'  # 其他表如果外键到用户表就做ajax搜索查询，不一次性加载数据
+
+</code></pre><h2 id="67-xadmin导出插件处理增加导出勾选数据项"><a class="anchor" href="#67-xadmin导出插件处理增加导出勾选数据项">#</a> 67 、xadmin 导出插件处理，增加导出勾选数据项</h2><p>常规的导出只有两个选择【导出表头】、【导出全部数据】</p><p><img data-src="https://img-blog.csdnimg.cn/20190917141511283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>现在想要做的是增加一个选择，即【导出表头】、【导出全部数据】、【导出勾选数据】，如下图：</p><p><img data-src="https://img-blog.csdnimg.cn/20190917141839822.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>需要修改 xadmin 源代码，具体如下</p><h4 id="1-加载js文件"><a class="anchor" href="#1-加载js文件">#</a> 1、加载 js 文件</h4><p>找到虚拟环境 \Lib\site-packages\xadmin\views\<span class="exturl" data-url="aHR0cDovL2xpc3QucHk=">list.py</span>，在 607 行增加’xadmin.plugin.importexport.js’，如下图所示</p><p><img data-src="https://img-blog.csdnimg.cn/20190917141853832.png" alt="在这里插入图片描述"></p><h4 id="2-修改exportpy后端处理下载文件"><a class="anchor" href="#2-修改exportpy后端处理下载文件">#</a> 2、<span class="exturl" data-url="aHR0cDovL3huLS1leHBvcnQtMmcwanM3NmwucHk=">修改 export.py</span>，后端处理下载文件</h4><p>找到虚拟环境 \Lib\site-packages\xadmin\plugins\<span class="exturl" data-url="aHR0cDovL2V4cG9ydC5weQ==">export.py</span></p><p>在 84 行把 rows = context [‘results’] 修改成如下函数</p><pre><code>    # 新增导出所选数据
+    # rows = context['results']  
+    rows = []
+    select_across = self.request.GET.get('_select_across', False) == '1'
+    selected = self.request.GET.get('_selected_actions', '')
+    if self.request.GET.get('selected', 'off') == 'on':
+        if not select_across:
+            selected_pk = selected.split(',')
+            for i in context['results']:
+                if str(i['object'].id) in selected_pk:
+                    rows.append(i)
+        else:
+            rows = context['results']
+    else:
+        rows = context['results']
+
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/2019091714200418.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>3、 修改 model_list.top_toolbar.exports.html<br>找到虚拟环境 \Lib\site-packages\xadmin\templates\xadmin\blocks\model_list.top_toolbar.exports.html</p><p>使用以下代码覆盖原文件</p><pre><code>    &#123;% load i18n %&#125;
+    &lt;div class=&quot;btn-group export&quot;&gt;
+        &lt;a id=&quot;export-menu&quot; class=&quot;dropdown-toggle btn btn-default btn-sm&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;
+            &lt;i class=&quot;fa fa-share&quot;&gt;&lt;/i&gt; &#123;% trans "Export" %&#125; &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
+            &#123;% for et in export_types %&#125;
+            <li><a data-toggle="modal" data-target="#export-modal-&#123;&#123;et.type&#125;&#125;"><i class="fa fa-arrow-circle-down">
+            </i> &#123;% trans "Export" %&#125; &#123;&#123;et.name&#125;&#125;</a></li>
+            &#123;% endfor %&#125;
+        &lt;/ul&gt;
+    
+        &#123;% for et in export_types %&#125;
+        <div id="export-modal-&#123;&#123;et.type&#125;&#125;" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="get" action="">
+    
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">&#123;% trans "Export" %&#125; &#123;&#123;et.name&#125;&#125;</h4>
+                        </div>
+                        <div class="modal-body">
+                            &#123;&#123; form_params|safe &#125;&#125;
+                            <input type="hidden" name="export_type" value="&#123;&#123;et.type&#125;&#125;">
+                            
+                            <input type="hidden" name="_selected_actions">
+                            <input type="hidden" name="_select_across">
+    
+                            <label class="checkbox">
+                                &#123;% if et.type == "xlsx" %&#125;
+                                <input type="checkbox" name="export_xlsx_header" checked value="on">
+                                &#123;% trans "Export with table header." %&#125;
+                                &#123;% endif %&#125;
+                                &#123;% if et.type == "xls" %&#125;
+                                <input type="checkbox" name="export_xls_header" checked value="on">
+                                &#123;% trans "Export with table header." %&#125;
+                                &#123;% endif %&#125;
+                                &#123;% if et.type == "csv" %&#125;
+                                <input type="checkbox" name="export_csv_header" checked value="on">
+                                &#123;% trans "Export with table header." %&#125;
+                                &#123;% endif %&#125;
+                                &#123;% if et.type == "xml" %&#125;
+                                <input type="checkbox" name="export_xml_format" checked value="on">
+                                &#123;% trans "Export with format." %&#125;
+                                &#123;% endif %&#125;
+                                &#123;% if et.type == "json" %&#125;
+                                <input type="checkbox" name="export_json_format" checked value="on">
+                                &#123;% trans "Export with format." %&#125;
+                                &#123;% endif %&#125;
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="all" value="on"> &#123;% trans "Export all data." %&#125;
+                            </label>
+                            
+                            <label class="checkbox">
+                                <input type="checkbox" name="selected" value="on"> 导出勾选数据
+                            </label>
+    
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">&#123;% trans "Close" %&#125;</button>
+    
+                            <button class="btn btn-success myexport glyphicon glyphicon-export" type="submit"><i class="fa fa-share"></i> &#123;% trans "Export" %&#125;
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        &#123;% endfor %&#125;
+    
+    &lt;/div&gt;
+    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        // 如果是订单导出，把待出货订单设置成待收货订单
+        $(document).ready(function () &#123;
+            $('.myexport').click(function () &#123;
+                // 当把订单导出时，需要修改订单状态为待收货状态
+                var url = window.location.protocol + '//' + window.location.host + &quot;/exportorder/&quot;;
+                $(&quot;input[name='_select_across']&quot;).val($(&quot;input[name='select_across']&quot;).val());
+                if ($(&quot;input[name='selected']&quot;).is(':checked')) &#123;
+                    var arr = [];
+                    $.each($('.action-select'), function () &#123;
+                        if (true == $(this).prop('checked')) &#123;
+                            arr.push($(this).val());
+                        &#125;
+                    &#125;);
+                    if(arr.length == 0)&#123;
+                        alert('请先勾选导出数据')
+                        return false
+                    &#125;
+                &#125;else&#123;
+                    var arr = []
+                    var order_type = $('.breadcrumb li').eq(1).text().trim()
+                    $('.grid-item').each(function (index, el) &#123;
+    
+                        arr.push($(el).find('td').eq(1).text().trim())
+                    &#125;)
+                &#125;
+                if (($('.breadcrumb &gt; li').eq(1).text()).indexOf('订单') != -1) &#123;
+                    // 5秒后执行
+                    setTimeout(function () &#123;
+                        $.ajax(&#123;
+                            type: &quot;POST&quot;,
+                            url: url,
+                            data: &#123;'orderlist': JSON.stringify(arr), 'order_type': order_type,&#125;,
+                            beforeSend: function (xhr) &#123;
+                                xhr.setRequestHeader(&quot;X-CSRFToken&quot;, $.getCookie(&quot;csrftoken&quot;))
+                            &#125;,
+                            success: function (data) &#123;
+                                window.location.reload();
+                            &#125;,
+                            error: function (xhr) &#123;
+                                alert(&quot;出现未知错误&quot;);
+                                window.location.reload();
+                            &#125;
+                        &#125;);
+                    &#125;, 5000);
+                &#125;
+            &#125;);
+        &#125;)
+    &lt;/script&gt;
+
+</code></pre><h2 id="68-使用f查询更新用户重要数据"><a class="anchor" href="#68-使用f查询更新用户重要数据">#</a> 68、使用 F 查询更新用户重要数据</h2><pre><code>    from django.db.models import F
+    # 使用F查询更新用户余额
+    balance = 5  
+    MallUser.objects.filter(id=1).update(balance=F('balance') + balance)
+
+</code></pre><p>相当于 sql 的</p><pre><code>    update Malluser set balance=balance + 5 where id=1;
+
+</code></pre><h2 id="69-日志输出模块"><a class="anchor" href="#69-日志输出模块">#</a> 69、日志输出模块</h2><pre><code>    import logging
+    import platform
+    # 全局函数
+    PlATFORM = platform.system()
+    if (PlATFORM == &quot;Linux&quot;):
+        # linux系统,文件保存在var下
+        SERVER_LOG_PATH = '/var/mylog.log'
+    else:
+        # windows系统,文件保存在D盘下
+        SERVER_LOG_PATH = 'D:\mylog.log'
+    # 定义一个logging的对象，命名为mylog
+    LOGGER = logging.getLogger('mylog')
+    # 设置级别为WARNING
+    LOGGER.setLevel(logging.WARNING)
+    # 创建一个handler，用于写入日志文件
+    fh = logging.FileHandler(SERVER_LOG_PATH, encoding='utf-8')
+    fh.setLevel(logging.WARNING)
+    # 定义handler的输出格式
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    fh.setFormatter(formatter)
+    # 给Logger添加handler
+    LOGGER.addHandler(fh)
+    # 不在控制台显示
+    LOGGER.propagate = False
+
+</code></pre><h2 id="70-字典排序"><a class="anchor" href="#70-字典排序">#</a> 70、字典排序</h2><p>字典在内存中发布是无序的，当想对键值或者键名进行排序时可以先把字典转成元组，这可以达到排序的目的。</p><pre><code>score = &#123;'小明': &#123;'avg_score': 90, 'English': 90, 'Math': 90, 'Chniese': 90, &#125;,
+     '小红': &#123;'avg_score': 60, 'English': 60, 'Math': 61, 'Chniese': 59, &#125;,
+     '小黑': &#123;'avg_score': 70, 'English': 75, 'Math': 65, 'Chniese': 70, &#125;,
+     '小白': &#123;'avg_score': 80, 'English': 95, 'Math': 65, 'Chniese': 80, &#125;,
+     &#125;
+# 对姓名进行排序，即对键名进行排序
+b = sorted(score.items(), key=lambda x: x[0], reverse=True)
+show_str = ''
+for info in b:
+    # print(info)
+    key, value = info[0], info[1]
+    show_str += '姓名：&#123;&#125;,平均分：&#123;&#125;，成绩：&#123;&#125;'.format(key,value['avg_score'], value) + '\r\n'
+print('对姓名进行排序')
+print(show_str)
+# 对平均分进行排序
+b = sorted(score.items(), key=lambda x: x[1]['avg_score'], reverse=True)
+show_str = ''
+for info in b:
+    # print(info)
+    key, value = info[0], info[1]
+    show_str += '姓名：&#123;&#125;,平均分：&#123;&#125;，成绩：&#123;&#125;'.format(key,value['avg_score'], value) + '\r\n'
+print('对平均分进行排序')
+print(show_str)
+
+# 对英语成绩进行排序
+b = sorted(score.items(), key=lambda x: x[1]['English'], reverse=True)
+show_str = ''
+for info in b:
+    # print(info)
+    key, value = info[0], info[1]
+    show_str += '姓名：&#123;&#125;,平均分：&#123;&#125;，成绩：&#123;&#125;'.format(key,value['avg_score'], value) + '\r\n'
+print('对英语成绩进行排序')
+print(show_str)
+</code></pre><p>输出：</p><pre><code>对姓名进行排序
+姓名：小黑,平均分：70，成绩：&#123;'avg_score': 70, 'English': 75, 'Math': 65, 'Chniese': 70&#125;
+姓名：小红,平均分：60，成绩：&#123;'avg_score': 60, 'English': 60, 'Math': 61, 'Chniese': 59&#125;
+姓名：小白,平均分：80，成绩：&#123;'avg_score': 80, 'English': 95, 'Math': 65, 'Chniese': 80&#125;
+姓名：小明,平均分：90，成绩：&#123;'avg_score': 90, 'English': 90, 'Math': 90, 'Chniese': 90&#125;
+
+对平均分进行排序
+姓名：小明,平均分：90，成绩：&#123;'avg_score': 90, 'English': 90, 'Math': 90, 'Chniese': 90&#125;
+姓名：小白,平均分：80，成绩：&#123;'avg_score': 80, 'English': 95, 'Math': 65, 'Chniese': 80&#125;
+姓名：小黑,平均分：70，成绩：&#123;'avg_score': 70, 'English': 75, 'Math': 65, 'Chniese': 70&#125;
+姓名：小红,平均分：60，成绩：&#123;'avg_score': 60, 'English': 60, 'Math': 61, 'Chniese': 59&#125;
+
+对英语成绩进行排序
+姓名：小白,平均分：80，成绩：&#123;'avg_score': 80, 'English': 95, 'Math': 65, 'Chniese': 80&#125;
+姓名：小明,平均分：90，成绩：&#123;'avg_score': 90, 'English': 90, 'Math': 90, 'Chniese': 90&#125;
+姓名：小黑,平均分：70，成绩：&#123;'avg_score': 70, 'English': 75, 'Math': 65, 'Chniese': 70&#125;
+姓名：小红,平均分：60，成绩：&#123;'avg_score': 60, 'English': 60, 'Math': 61, 'Chniese': 59&#125;
+</code></pre><h3 id="对列表中字典按多个键值排序"><a class="anchor" href="#对列表中字典按多个键值排序">#</a> 对列表中字典按多个键值排序</h3><pre><code>from operator import itemgetter
+data = [
+    &#123;'code': 1, 'position': 300, 'time': '1620442242'&#125;,
+    &#123;'code': 2, 'position': 255, 'time': '1620442242'&#125;,
+    &#123;'code': 3, 'position': 256, 'time': '1620442242'&#125;,
+    &#123;'code': 1, 'position': 500, 'time': '1620442242'&#125;,
+    &#123;'code': 5, 'position': 455, 'time': '1620442242'&#125;,
+    &#123;'code': 1, 'position': 322, 'time': '1620442242'&#125;,
+    &#123;'code': 6, 'position': 676, 'time': '1620442242'&#125;,
+]
+data = sorted(data, key=itemgetter('code', 'position'))
+
+print(data)
+
+</code></pre><p>输出：</p><pre><code>[
+&#123;'code': 1, 'position': 300, 'time': '1620442242'&#125;, 
+&#123;'code': 1, 'position': 322, 'time': '1620442242'&#125;, 
+&#123;'code': 1, 'position': 500, 'time': '1620442242'&#125;, 
+&#123;'code': 2, 'position': 255, 'time': '1620442242'&#125;, 
+&#123;'code': 3, 'position': 256, 'time': '1620442242'&#125;, 
+&#123;'code': 5, 'position': 455, 'time': '1620442242'&#125;, 
+&#123;'code': 6, 'position': 676, 'time': '1620442242'&#125;]
+</code></pre><h2 id="71-时间格式与字符串互转-比较大小"><a class="anchor" href="#71-时间格式与字符串互转-比较大小">#</a> 71、时间格式与字符串互转、比较大小</h2><pre><code>import datetime
+
+# 当前时间转字符串
+now = datetime.datetime.strftime(datetime.datetime.now(), '%Y-%m-%d %H:%M:%S')
+# 字符串转时间格式
+now = datetime.datetime.strptime(now, '%Y-%m-%d %H:%M:%S')
+a = now + datetime.timedelta(minutes=-15)
+# 时间比较大小
+if a &lt; now:
+    print('yes')
+</code></pre><h2 id="72-python把u开头的字符串转中文"><a class="anchor" href="#72-python把u开头的字符串转中文">#</a> 72、python 把’\u’开头的字符串转中文</h2><pre><code>str_data = '\\u7528\\u6237 ID \\u6216\\u5bc6\\u7801\\u9519\\u8bef'
+# 字符串.encode('utf-8').decode('unicode_escape')
+str_data_to_zh = str_data.encode('utf-8').decode('unicode_escape')
+print(str_data_to_zh)
+
+# 输出
+用户 ID 或密码错误
+</code></pre><h2 id="73-django进行数据迁移时出现no-changes-detected解决方案"><a class="anchor" href="#73-django进行数据迁移时出现no-changes-detected解决方案">#</a> 73、django 进行数据迁移时出现 No changes detected 解决方案</h2><p>原因：可能是由于 app 下面没有 migrations 文件夹<br>所以需要创建这个文件夹，命令</p><pre><code>python manage.py makemigrations --empty 你的app名称
+</code></pre><h2 id="74-ubuntu下载文件到windows桌面"><a class="anchor" href="#74-ubuntu下载文件到windows桌面">#</a> 74、ubuntu 下载文件到 windows 桌面</h2><pre><code>apt install lrzsz
+sz 123.txt
+</code></pre><h2 id="75-git查看提交日志"><a class="anchor" href="#75-git查看提交日志">#</a> 75、git 查看提交日志</h2><pre><code> git log --author=&quot;ldc&quot;
+</code></pre><h2 id="76-python翻译模块"><a class="anchor" href="#76-python翻译模块">#</a> 76、python 翻译模块</h2><p>可以把英文翻译成中文，也可以把中文翻译成英文</p><pre><code>pip install  translate
+
+from translate import Translator
+
+name = 'giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca'
+translator = Translator(to_lang=&quot;chinese&quot;)
+translation = translator.translate(name)
+print(translation)
+
+translator= Translator(from_lang=&quot;chinese&quot;,to_lang=&quot;english&quot;)
+translation = translator.translate(&quot;我想你&quot;)
+print(translation)
+
+
+输出：
+
+大熊猫，熊猫，熊猫熊，浣熊，大熊猫
+I missed you.
+</code></pre><h2 id="77-python实现字符串转字典"><a class="anchor" href="#77-python实现字符串转字典">#</a> 77、python 实现字符串转字典</h2><pre><code>import ast
+import json
+
+target_str = '&#123;&quot;h&quot;: 1, &quot;e&quot;: 2, &quot;l&quot;: 3, &quot;l&quot;: 4, &quot;o&quot;: 5&#125;'
+target_str2 = &quot;&#123;'h': 1, 'e': 2, 'l': 3, 'l': 4, 'o': 5&#125;&quot;
+
+# 方式1：使用json，缺点，字符串中不能出现单引号
+# 由于 json 语法规定 数组或对象之中的字符串必须使用双引号，不能使用单引号
+# 官网https://www.json.org/json-en.html上有一段描述是
+# A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes
+print(json.loads(target_str))
+# print(json.loads(target_str2))   # 使用json转这个字符串会报错 Expecting property name enclosed in double quotes
+
+# 方式2：使用eval函数，缺点，不安全
+print(eval(target_str))
+print(eval(target_str2))
+# print(eval(&quot;__import__('os').system('dir')&quot;))  # 会列出当前的目录文件，如果字符串是一些删除命令，则可以把整个目录清空！
+
+# 方式3，使用ast.literal_eval，没有json与eval的缺点，推荐使用这个
+print(ast.literal_eval(target_str))
+print(ast.literal_eval(target_str2))
+</code></pre><p>输出：</p><pre><code>&#123;'h': 1, 'e': 2, 'l': 4, 'o': 5&#125;
+&#123;'h': 1, 'e': 2, 'l': 4, 'o': 5&#125;
+&#123;'h': 1, 'e': 2, 'l': 4, 'o': 5&#125;
+&#123;'h': 1, 'e': 2, 'l': 4, 'o': 5&#125;
+&#123;'h': 1, 'e': 2, 'l': 4, 'o': 5&#125;
+</code></pre><h2 id="78-django-app-如何在后台显示中文名"><a class="anchor" href="#78-django-app-如何在后台显示中文名">#</a> 78、django app 如何在后台显示中文名</h2><p>1. 在 app (这里以 user 为例) 下面的__init__.py 文件中</p><p>添加:</p><pre><code>default_app_config = 'user.apps.UserConfig'
+</code></pre><p>2. 在 apps.py 中</p><pre><code>from django.apps import AppConfig
+
+class UserConfig(AppConfig):
+    name = 'user'
+    verbose_name = '用户'
+</code></pre><h2 id="79-使用python给excel指定行添加数据"><a class="anchor" href="#79-使用python给excel指定行添加数据">#</a> 79、使用 python 给 Excel 指定行添加数据</h2><pre><code>import openpyxl, sys
+
+wb = openpyxl.load_workbook('b.xlsx')
+sheet = wb['Sheet1']
+
+# 在excel表格第二行添加新数据
+addrow = 1   # 增加一行
+row = 2  # 在第二行新增一行
+name = 'b-back.xlsx' # 新的表名
+
+wb1 = openpyxl.Workbook()
+sheet1 = wb1['Sheet']
+
+# 复制前row行
+for i in range(1, row):
+    for j in range(1, sheet.max_column + 1):
+        sheet1.cell(row=i, column=j).value = sheet.cell(row=i, column=j).value
+
+
+# 复制后row行
+for i in range(row, sheet.max_row + 1):
+    for j in range(1, sheet.max_column + 1):
+        if i == row:
+            # 给第row行添加新的数据
+            sheet1.cell(row=row, column=j).value = '新增'
+        sheet1.cell(row=i + addrow, column=j).value = sheet.cell(row=i, column=j).value
+
+wb1.save(name)
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200526120005871.png" alt="在这里插入图片描述"></p><h2 id="80-python中的format格式拼接字符串"><a class="anchor" href="#80-python中的format格式拼接字符串">#</a> 80、python 中的 format 格式拼接字符串</h2><pre><code>d = &#123;'a': 1, 'b': 2, 'c': 3, 'd': 5&#125;
+
+print('&#123;a&#125;,&#123;b&#125;'.format(**d))
+print('&#123;0&#125;,&#123;1&#125;,&#123;0&#125;'.format('a', 'b'))
+print(f&quot;&#123;d['a']&#125;&quot;)
+</code></pre><p>输出：</p><pre><code>1,2
+a,b,a
+1
+</code></pre><h2 id="81-数据库inner-join-full-join-left-join-union-union-all区别"><a class="anchor" href="#81-数据库inner-join-full-join-left-join-union-union-all区别">#</a> 81、数据库 inner join、full join、left join、union、union all 区别</h2><p>表 a_test</p><p><img data-src="https://img-blog.csdnimg.cn/20200529102527295.png#pic_center" alt="在这里插入图片描述"></p><p>表 b_test</p><p><img data-src="https://img-blog.csdnimg.cn/20200529102549669.png#pic_center" alt="在这里插入图片描述"></p><p>INNER JOIN</p><p>是 A 和 B 的交集</p><pre><code>SELECT * FROM a_test INNER JOIN b_test ON a_test.name = b_test.namesa
+
+Inner join 产生的结果集中，是A和B的交集。
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102631494.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>FULL OUTER JOIN</p><p>产生 A 和 B 的并集</p><pre><code>SELECT * FROM a_test FULL OUTER JOIN b_test ON a_test.name = b_test.name 
+
+Full outer join 产生A和B的并集。
+但是需要注意的是，对于没有匹配的记录，则会以null做为值。
+可以使用IF NULL判断。
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102702865.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><pre><code>SELECT * FROM a_test FULL OUTER JOIN b_test ON a_test.name = b_test.name
+WHERE a_test.id IS null OR b_test.id IS null
+
+产生A表和B表没有交集的数据集。
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102724731.png#pic_center" alt="在这里插入图片描述"></p><p>LEFT [OUTER] JOIN</p><p>产生表 A 的完全集，而 B 表中匹配的则有值，没有匹配的则以 null 值取代</p><pre><code>SELECT * FROM a_test LEFT OUTER JOIN b_test ON a_test.name = b_test.name
+有些数据库可以不要OUTER
+SELECT * FROM a_test LEFT  JOIN b_test ON a_test.name = b_test.name
+Left outer join 产生表A的完全集，而B表中匹配的则有值，没有匹配的则以null值取代。
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102808618.png#pic_center" alt="在这里插入图片描述"></p><pre><code>SELECT * FROM a_test LEFT OUTER JOIN b_test ON a_test.name = b_test.name 
+WHERE b_test.id IS null
+
+产生在A表中有而在B表中没有的集合。
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102828846.png#pic_center" alt="在这里插入图片描述"></p><p>RIGHT [OUTER] JOIN</p><p>RIGHT OUTER JOIN 是后面的表为基础，与 LEFT OUTER JOIN 用法类似。</p><p>UNION 与 UNION ALL</p><pre><code>UNION 操作符用于合并两个或多个 SELECT 语句的结果集。
+请注意，UNION 内部的 SELECT 语句必须拥有相同数量的列。
+列也必须拥有相似的数据类型。
+同时，每条 SELECT 语句中的列的顺序必须相同。
+UNION 只选取记录，而UNION ALL会列出所有记录。
+
+SELECT name FROM a_test UNION SELECT name FROM b_test
+
+选取不同值
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102855430.png#pic_center" alt="在这里插入图片描述"></p><pre><code>SELECT a_test.id,a_test.name  FROM a_test 
+UNION 
+SELECT b_test.id,b_test.name FROM b_test
+
+由于 id 51 xh   与 id 4 xh 并不相同，不合并
+
+
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102917488.png#pic_center" alt="在这里插入图片描述"></p><pre><code>SELECT name FROM a_test UNION ALL SELECT name FROM b_test
+
+全部列出来
+
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200529102937801.png#pic_center" alt="在这里插入图片描述"></p><p>还需要注意的是我们还有一个是 “交差集” cross join, 这种 Join 没有办法用文式图表示，因为其就是把表 A 和表 B 的数据进行一个 N*M 的组合，即笛卡尔积。</p><p>表达式如下：SELECT * FROM a_test CROSS JOIN b_test</p><p>这个笛卡尔乘积会产生 4 x 4 = 16 条记录，一般来说，我们很少用到这个语法。但是我们得小心，如果不是使用嵌套的 select 语句，一般系统都会产生笛卡尔乘积然再做过滤。这是对于性能来说是非常危险的，尤其是表很大的时候。</p><h2 id="82-windows电脑查看端口使用情况"><a class="anchor" href="#82-windows电脑查看端口使用情况">#</a> 82、windows 电脑查看端口使用情况</h2><p>找出 8000 端口对应的 PID 进程，命令为：</p><pre><code>netstat -ano|findstr 8000
+</code></pre><p>进程信息如下：</p><pre><code> TCP    0.0.0.0:8000           0.0.0.0:0              LISTENING       1620
+ UDP    0.0.0.0:8000           *:*                                    1620
+</code></pre><p>找出进程对应的详细信息：</p><pre><code>tasklist |findstr 1620
+
+KGService.exe                 1620 Console                    1     18,696 K
+</code></pre><p>关进程：</p><pre><code>taskkill /pid 1620 /F
+</code></pre><p>查看程序占用内存<br>比如查看 python 占用运行内存</p><pre><code>tasklist  /fi &quot;imagename eq python.exe&quot;
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/a61afd069e964e6f9d755c5c1884ca6f.png" alt="在这里插入图片描述"></p><h2 id="83-django生成表和反向生成model"><a class="anchor" href="#83-django生成表和反向生成model">#</a> 83、Django 生成表和反向生成 Model</h2><pre><code>正向生成：
+python manage.py makemigrations
+python manage.py migrate
+
+反向：
+会根据设置的数据库中的表在自动生成对应的Model代码，并打印出来
+python manage.py inspectdb
+
+以直接将打印的代码直接导入到指定的Model文件中
+python manage.py inspectdb &gt; models.py
+</code></pre><h2 id="84-windows的hosts文件位置"><a class="anchor" href="#84-windows的hosts文件位置">#</a> 84、windows 的 hosts 文件位置</h2><pre><code>C:\Windows\System32\drivers\etc\hosts
+</code></pre><h2 id="85-postgresql数据库"><a class="anchor" href="#85-postgresql数据库">#</a> 85、postgresql 数据库</h2><pre><code># 如果表存在就先删除
+drop table if exists student;
+# 创建学生表
+# id      serial not null  表示id自增
+# id      integer not null  表示id不自增
+create table student
+(
+    id                    serial not null
+        constraint student_pk
+            primary key,
+    name                  varchar,
+    class_id              integer,
+    height                numeric,
+    weight                numeric,
+    write_date            timestamp
+    
+);
+
+comment on table student is '学生表';
+
+comment on column student.name is '名称';
+
+comment on column student.class_id is '班级ID';
+
+comment on column student.height is '身高';
+
+comment on column student.weight is '体重';
+
+comment on column student.write_date is '修改时间';
+
+alter table student
+    owner to odoo;
+
+
+# 更新
+update user set name='张三' where id=111
+
+# 更新表a的字段为表b的值
+update account_invoice 
+set sale_order_id=so.id 
+from sale_order so 
+where account_invoice.origin=so.name
+
+# 新增
+insert into &quot;user&quot; (name,sex) values ('小明',1),('小红', 0)
+# 新增或更新
+如果id冲突就更新
+INSERT INTO  student(id, name)
+   VALUES(12, '小明'),(13, '小红')
+   ON conflict(id) DO UPDATE
+   SET name ='未知';
+如果id冲突就什么也不做
+INSERT INTO  student(id, name)
+   VALUES(12, '小明'),(13, '小红')
+   ON conflict(id) DO NOTHING;
+
+# 把一个表中的数据插入到另一个表中
+insert into 目标表名 (column1,column2,columnn) select value1,value2,valuen from  源表名
+比如：
+insert into student (name, classs_name,create_date) select  student_name as name, class_name, now() from class_table;
+
+# 获取当前时间
+now()
+select now()
+
+# 删除
+DELETE FROM table_name [WHERE Clause]
+
+# 增加字段
+alter table 表名 add column 列名 类型;
+# 删除字段
+alter table 表名 dropcolumn 列名 ;
+
+# postgresql数据库查看表所有字段
+select * from information_schema.columns where table_schema='public' and table_name='表名';
+
+# postgresql获取所有表名
+select tablename from pg_tables where schemaname='public'
+
+# 对查询结果按id降序显示
+select * from table_name order by id desc
+
+# 对查询结果按id升序显示
+select * from table_name order by id asc
+
+# 转义字符, 查找name中包含单引号的记录
+select * from student where name like  E'%\'%';
+
+# 查看表记录总数
+select relname as TABLE_NAME, reltuples as rowCounts from pg_class where relkind = 'r' and relnamespace = (select oid from pg_namespace where nspname='public') order by rowCounts desc;
+
+# 将结果转换为数组
+SELECT array(SELECT &quot;name&quot; FROM sale_order);
+
+# 将数组合并为字符串
+select array_to_string(array[1,2,3], ',')
+
+# 联合子集更新，把sale_order_line的name连接换行符，然后按id更新到表a_test中对应的name
+update a_test set name=array_to_string(array(select name from sale_order_line where order_id=a_test.id),'&lt;br/&gt;');
+
+# PostgreSQL合并查询同一列的多条记录，针对一对多，多对多字段
+比如表：
+
+id   name                  
+1    小明                   
+1    小红                     id   name
+1    小亮        --&gt;          1    小明，小亮，小红
+2    小强                     2    小强，小王
+2    小王
+
+SELECT 
+    id, array_to_string(ARRAY(SELECT unnest(array_agg(name order by name desc))),',') AS all_name
+FROM  
+    student
+GROUP BY id;
+
+# case语句
+case var
+	when condition1 then statement1
+	when condition2 then statement2
+else statementn
+end as new_name
+
+比如：
+select case name
+	when '小明' then 'xm'
+	when '小红' then 'xh'
+	when '小刚' then 'xg'
+else 'xw'
+end as short_name
+from student
+
+# 临时表、字符串合并、类型转换、时间格式转换、当前时间
+WITH TEMP AS ( 
+	SELECT CAST ( concat ( bam.account_period_code, '-01' ) AS TIMESTAMP ) 
+	   AS account_period_time 
+		 FROM bi_account_move AS bam ) 
+SELECT
+	account_period_time,
+	to_char(CURRENT_DATE,'yyyy-MM-dd hh24:MI:ss') as current_date,
+	to_char( account_period_time, 'yyyy' ) as year,
+	to_char( account_period_time, 'MM' ) as month,
+	to_char( account_period_time, 'dd' ) as day 
+FROM TEMP
+
+比如：
+account_period_time	current_date	    year	month	day
+2019-06-01 0:00:00	2020-06-24 00:00:00	2019	 06	     01
+2019-06-01 0:00:00	2020-06-24 00:00:00	2019	 06	     01
+
+# 多个字符串拼接
+select 
+concat('payment_', CAST(ap.id as varchar)) as line_key
+from ap
+
+# 将查询所得结果集的某一字段拼接成字符串，默认的是逗号
+select GROUP_CONCAT(id) from test where id&gt;5;
+结果为：
+1,2,3,4,5,6,7
+# 使用其他分隔符拼接
+select GROUP_CONCAT(id separator '-') from test where id&gt;5;
+结果为：
+1-2-3-4-5-6-7
+# 多个临时表
+WITH temp_student AS ( SELECT ID, NAME, sex FROM student WHERE sex = TRUE ),
+temp_class AS (
+	SELECT
+		ID,
+		NAME,
+		student_id,
+		teacher_id
+	FROM
+		the_class 
+	),
+	temp_teacher AS (
+	SELECT 
+	  ID,
+		NAME,
+		age 
+	FROM
+		teacher 
+	) 
+	SELECT
+	ts.NAME AS student_name,
+	tc.NAME AS class_name,
+	te.NAME AS teacher_name
+	from temp_student as ts
+	LEFT JOIN temp_class AS tc ON tc.student_id = ts.ID  
+	LEFT JOIN teacher AS te ON te.id = tc.teacher_id  
+
+# null转成有意义的值
+select COALESCE(name, '') as name from a_test
+意思就是如果name为null，就转为空字符串
+
+# 字符串截取
+select SUBSTRING('abcd',1,2); -- result:ab 表示从下标从1开始,截取2个字符
+
+# 使用 interval 时间相加减(+/-)
+当前时间 + 10秒，
+select to_char(now() + interval '10 second', 'yyyy-mm-dd hh24:mi:ss')  as reqDate from account_period;
+当前时间 - 10秒
+select to_char(now() + interval '-10 second', 'yyyy-mm-dd hh24:mi:ss')  as reqDate from account_period;
+ 
+当前时间 + 10分，
+select to_char(now() + interval '10 minute', 'yyyy-mm-dd hh24:mi:ss')  as reqDate  from account_period;
+ 
+当前时间 + 10时，
+select to_char(now() + interval '10 hour', 'yyyy-mm-dd hh24:mi:ss')  as reqDate from account_period;
+ 
+当前时间 + 10天，
+select to_char(now() + interval '10 day', 'yyyy-mm-dd hh24:mi:ss')  as reqDate from account_period;
+
+当前时间 + 10年，
+select to_char(now() + interval '10 year', 'yyyy-mm-dd hh24:mi:ss')  as reqDate from account_period;
+
+# UNION types numeric and text cannot be matched
+NULL::NUMERIC
+ 这个问题，是因为几个sql组合在一起时，同一个字段的值，遇到null时，需要进行类型转换。
+
+# 对行记录定义行编号，使用函数ROW_NUMBER()
+# 按分数进行降序，然后给行记录标记行编号，可以作为排名来使用
+select           
+	ROW_NUMBER() OVER (ORDER BY score desc) AS sequence_number,
+	name,score
+from
+	b_test
+
+# 数字转字符串  
+select cast(123 as VARCHAR); 
+
+# 字符串转数字  
+select cast('123' as INTEGER);
+</code></pre><h2 id="86-python控制台输出带颜色的文字方法"><a class="anchor" href="#86-python控制台输出带颜色的文字方法">#</a> 86、python 控制台输出带颜色的文字方法</h2><pre><code>#格式：　　设置颜色开始 ：\033[显示方式;前景色;背景色m
+#说明：
+前景色            背景色           颜色
+---------------------------------------
+30                40              黑色
+31                41              红色
+32                42              绿色
+33                43              黃色
+34                44              蓝色
+35                45              紫红色
+36                46              青蓝色
+37                47              白色
+显示方式           意义
+-------------------------
+0                终端默认设置
+1                高亮显示
+4                使用下划线
+5                闪烁
+7                反白显示
+8                不可见
+ 
+#例子：
+\033[1;31;40m    &lt;!--1-高亮显示 31-前景色红色  40-背景色黑色--&gt;
+\033[0m          &lt;!--采用终端默认设置，即取消颜色设置--&gt;
+</code></pre><pre><code>例子
+print('紫红字体 \033[1;35m hello world \033[0m!')
+print('褐色背景绿色字体 \033[1;32;43m hello world \033[0m!')
+print('\033[1;33;44mhello world\033[0m')
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200615143709116.png" alt="在这里插入图片描述"></p><h2 id="87-控制台输出白色方框"><a class="anchor" href="#87-控制台输出白色方框">#</a> 87、控制台输出白色方框</h2><pre><code>print('█')
+</code></pre><h2 id="88-xadmin后台编辑多对多字段"><a class="anchor" href="#88-xadmin后台编辑多对多字段">#</a> 88、xadmin 后台编辑多对多字段</h2><p>在 models.py 定义了多对多字段，想要在编辑时可以灵活使用这个字段的话，可以按以下方法设置：<br><span class="exturl" data-url="aHR0cDovL21vZGVzLnB5">modes.py</span></p><pre><code>class Book(models.Model):
+    title = models.CharField(verbose_name=&quot;书名&quot;, max_length=32)
+    second_title = models.CharField(verbose_name=&quot;副标题&quot;, max_length=32, blank=True, null=True)
+    author = models.CharField(verbose_name=&quot;作者&quot;, max_length=32)
+    translator = models.CharField(verbose_name=&quot;译者&quot;, max_length=32, blank=True, null=True)
+    intro = models.TextField(verbose_name=&quot;描述&quot;)
+    pic = models.FileField(verbose_name=&quot;封面图片&quot;, max_length=64, upload_to='book_cover', null=True, blank=True)
+    tags = models.ManyToManyField(Tags, verbose_name='书籍标签', blank=True)
+    prizes = models.ManyToManyField(Prizes, verbose_name='获奖详情', blank=True)
+    sump = models.IntegerField(verbose_name=&quot;收藏人数&quot;, default=0)
+    rate_num = models.IntegerField(verbose_name=&quot;评分人数&quot;, default=0)
+    num = models.IntegerField(verbose_name=&quot;浏览量&quot;, default=0)
+    published_time = models.DateField(blank=True, null=True, verbose_name='出版时间')
+    create_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+
+    class Meta:
+        db_table = 'book'
+        verbose_name = &quot;图书&quot;
+        verbose_name_plural = &quot;图书&quot;
+
+    def __str__(self):
+        return self.title
+</code></pre><p><span class="exturl" data-url="aHR0cDovL2FkbWlueC5weQ==">adminx.py</span></p><pre><code># 书籍管理
+class BookAdmin(object):
+    search_fields = ['title', 'author', 'intro']  # 检索字段
+    list_display = ['id', 'show_pic', 'title', 'second_title', 'author', 'translator', 'published_time', 'intro',
+                    'tags', 'prizes', 'num', 'sump', 'rate_num']  # 要显示的字段
+    list_filter = ['published_time', 'tags', 'prizes']  # 分组过滤的字段
+    ordering = ('id',)  # 设置默认排序字段，负号表示降序排序
+    list_per_page = 30  # 默认每页显示多少条记录，默认是100条
+    model_icon = 'fa fa-book'  # 左侧小图标
+    list_editable = ['title', 'author', 'intro', 'published_time']  # 可编辑字段
+    style_fields = &#123;'tags': 'm2m_transfer', 'prizes': 'm2m_transfer'&#125;  # 控制字段的显示样式
+    filter_horizontal = ('tags', 'prizes')  # 水平选择编辑多对多字段
+</code></pre><p>重点是设置 style_fields 和 filter_horizontal ，效果：</p><p><img data-src="https://img-blog.csdnimg.cn/20200621214122315.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="89-django后台通过按钮显示textfield字段内容"><a class="anchor" href="#89-django后台通过按钮显示textfield字段内容">#</a> 89、Django 后台通过按钮显示 TextField 字段内容</h2><p>由于 TextField 字段类型内容可能很长，在后台显示时很占屏幕位置，可以通过按钮来控制显示，代码如下：<br>models.py 中定义了一个 TextField 字段类型：</p><pre><code>class Prizes(models.Model):
+    name = models.CharField(max_length=32, verbose_name=&quot;奖项&quot;)
+    intro = models.TextField(blank=True, null=True, verbose_name='简介')
+
+    class Meta:
+        db_table = 'prizes'
+        verbose_name = &quot;奖项&quot;
+        verbose_name_plural = &quot;奖项&quot;
+
+    def __str__(self):
+        return self.name
+</code></pre><p>这里使用 xadmin 作为后台管理框架，在 adminx.py 中代码如下：</p><pre><code>import xadmin
+from django.utils.safestring import mark_safe
+from xadmin import views
+
+from .models import *
+
+# 奖项管理
+class PrizesAdmin(object):
+    search_fields = ['name']  # 检索字段
+    list_display = ['id', 'name', 'show_intro']
+    list_filter = ['name']
+    ordering = ('id',)
+
+    def show_intro(self, obj):
+        # 显示简介
+        if not obj.intro:
+            return mark_safe('')
+        if len(obj.intro) &lt; 20:
+            return mark_safe(obj.intro)
+
+        short_id = f'&#123;obj._meta.db_table&#125;_short_text_&#123;obj.id&#125;'
+        short_text_len = len(obj.intro) // 4
+        short_text = obj.intro[:short_text_len] + '......'
+        detail_id = f'&#123;obj._meta.db_table&#125;_detail_text_&#123;obj.id&#125;'
+        detail_text = obj.intro
+
+        text = &quot;&quot;&quot;&lt;style type=&quot;text/css&quot;&gt;
+                        #%s,%s &#123;padding:10px;border:1px solid green;&#125; 
+                  &lt;/style&gt;
+                    &lt;script type=&quot;text/javascript&quot;&gt;
+
+                    function openShutManager(oSourceObj,oTargetObj,shutAble,oOpenTip,oShutTip,oShortObj)&#123;
+                        var sourceObj = typeof oSourceObj == &quot;string&quot; ? document.getElementById(oSourceObj) : oSourceObj;
+                        var targetObj = typeof oTargetObj == &quot;string&quot; ? document.getElementById(oTargetObj) : oTargetObj;
+                        var shortObj = typeof oShortObj == &quot;string&quot; ? document.getElementById(oShortObj) : oShortObj;
+                        var openTip = oOpenTip || &quot;&quot;;
+                        var shutTip = oShutTip || &quot;&quot;;
+                        if(targetObj.style.display!=&quot;none&quot;)&#123;
+                           if(shutAble) return;
+                           targetObj.style.display=&quot;none&quot;;
+                           shortObj.style.display=&quot;block&quot;;
+                           if(openTip  &amp;&amp;  shutTip)&#123;
+                            sourceObj.innerHTML = shutTip; 
+                           &#125;
+                        &#125; else &#123;
+                           targetObj.style.display=&quot;block&quot;;
+                           shortObj.style.display=&quot;none&quot;;
+                           if(openTip  &amp;&amp;  shutTip)&#123;
+                            sourceObj.innerHTML = openTip; 
+                           &#125;
+                        &#125;
+                        &#125;
+                    &lt;/script&gt;
+                    &lt;p id=&quot;%s&quot;&gt;%s&lt;/p&gt;
+                    &lt;p&gt;&lt;a href=&quot;###&quot; οnclick=&quot;openShutManager(this,'%s',false,'点击关闭','点击展开','%s')&quot;&gt;点击展开&lt;/a&gt;&lt;/p&gt;
+
+                    &lt;p id=&quot;%s&quot; style=&quot;display:none&quot;&gt;
+                       %s
+                    &lt;/p&gt;
+                    &quot;&quot;&quot; % (short_id, detail_id, short_id, short_text, detail_id, short_id, detail_id, detail_text)
+        return mark_safe(text)
+
+    show_intro.short_description = '描述'
+</code></pre><p><strong>注意</strong>：复制代码后需要做如下修改：</p><p><img data-src="https://img-blog.csdnimg.cn/20200815204246956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>一开始效果</p><p><img data-src="https://img-blog.csdnimg.cn/20200621230038819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>点击展开效果：<img data-src="https://img-blog.csdnimg.cn/20200621230120177.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><h2 id="90-前端判断上传的文件是否为图片且限制大小为300kb"><a class="anchor" href="#90-前端判断上传的文件是否为图片且限制大小为300kb">#</a> 90、前端判断上传的文件是否为图片且限制大小为 300kB</h2><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en-us&quot;&gt;
+
+&lt;body class=&quot;login&quot;&gt;
+
+&lt;input class=&quot;form-control input-lg&quot; id=&quot;id_icon&quot; name=&quot;icon&quot; type=&quot;file&quot; onchange=&quot;imgTypeSize('id_icon',300)&quot;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //判断是否为图片，若为图片，判断其大小是否大于0.3M
+    function imgTypeSize(FileId, maxsize) &#123;
+        /*获取图片内容对象*/
+        var imgFile = document.getElementById(FileId).files[0];
+        if (imgFile.name == &quot;&quot;) &#123;
+            alert(&quot;请上传头像哦&quot;);
+            return false;
+        &#125; else &#123;
+            /*图片类型正则验证*/
+            var imgStr = /\.(jpg|jpeg|png|bmp|BMP|JPG|PNG|JPEG)$/;
+            if (!imgStr.test(imgFile.name)) &#123;
+                alert(&quot;文件不是图片类型&quot;);
+                return false;
+            &#125; else &#123;
+                /*图片大小*/
+                var imagSize = imgFile.size;
+                if (imagSize &lt; (1024 * maxsize)) &#123;
+                    return true;
+                &#125; else &#123;
+                    alert(imgFile.name + &quot;大小不能超过&quot; + maxsize + &quot;kB&quot;);
+                    document.getElementById(FileId).value = &quot;&quot;
+                    return false;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="91-form表单提交前验证"><a class="anchor" href="#91-form表单提交前验证">#</a> 91、form 表单提交前验证</h2><pre><code>&lt;form action=&quot;&quot; method=&quot;post&quot; id=&quot;login-form&quot; onsubmit=&quot;return toVaild()&quot;&gt;
+	&lt;input class=&quot;form-control&quot; id=&quot;id_account&quot; name=&quot;account&quot; type=&quot;text&quot; placeholder=&quot;账号&quot;/&gt;
+	&lt;input class=&quot;form-control&quot; id=&quot;id_password&quot; name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;密码&quot;&gt;
+&lt;form&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    document.getElementById('id_username').focus()
+
+    function toVaild() &#123;
+        var account = document.getElementById(&quot;id_account&quot;).value;
+        var password = document.getElementById(&quot;id_password&quot;).value;
+        if (account == &quot;&quot; || password == &quot;&quot;) &#123;
+            alert(&quot;请输入账号和密码&quot;);
+            return false;
+        &#125; else &#123;
+            return true;
+        &#125;
+    &#125;
+&lt;/script&gt;
+</code></pre><h2 id="92-有序字典"><a class="anchor" href="#92-有序字典">#</a> 92、有序字典</h2><pre><code>import collections
+
+d1 = collections.OrderedDict()  # 创建一个有序字典
+d1['a'] = 'A'
+d1['b'] = 'B'
+d1['c'] = 'C'
+d1['d'] = 'D'
+for k, v in d1.items():
+    print(k, v)
+</code></pre><h2 id="93-python在windows系统下实现tts文字转语音"><a class="anchor" href="#93-python在windows系统下实现tts文字转语音">#</a> 93、Python 在 Windows 系统下实现 TTS（文字转语音）</h2><p>导入包：</p><pre><code>pip install pypiwin32
+
+import win32com.client
+spk = win32com.client.Dispatch(&quot;SAPI.SpVoice&quot;)
+spk.Speak(u&quot;my name is ldc,what is your name&quot;)
+spk.Speak(u&quot;大家好&quot;)
+</code></pre><h2 id="94-定义一个简单闹钟"><a class="anchor" href="#94-定义一个简单闹钟">#</a> 94、定义一个简单闹钟</h2><pre><code># pip install pypiwin32 -i https://pypi.python.org/simple
+import win32com.client
+import time 
+import winsound
+
+spk = win32com.client.Dispatch(&quot;SAPI.SpVoice&quot;)
+# 定义闹钟时间
+clocktime = [[19, 19], [11, 10], [12, 10], [18, 47]]  
+runinghour = 1  # 定义运行时间
+times = runinghour * 3600  # 次数
+print(times)
+for i in range(1, times):
+    time_now = [time.localtime(time.time()).tm_hour, time.localtime(time.time()).tm_min]
+    if time_now in clocktime:
+        print(time_now)
+        winsound.Beep(1000, 1000)
+        spk.Speak(u&quot;快去看下饭好了没有？&quot;)
+    time.sleep(60)  # 每分钟对比一次时间
+</code></pre><h2 id="95-根据年月获取当月天数"><a class="anchor" href="#95-根据年月获取当月天数">#</a> 95、根据年月获取当月天数</h2><pre><code>def get_month_days(year, month):
+    &quot;&quot;&quot;
+    根据年份，月份信息显示此月份天数
+    :param year: 年份：
+    :param month: 月份（1～12）：
+    :return: 当月天数
+    &quot;&quot;&quot;
+    if month &gt;12 or month &lt;= 0:
+        return -1
+    if month == 2:
+        return 29 if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else 28
+
+    if month in (4, 6, 9, 11):
+        return 30
+    else:
+        return 31
+
+a = '2020-04'.split('-')
+year = int(a[0])
+month = int(a[1])
+print(get_month_days(year,month))
+
+输出：
+30
+</code></pre><h2 id="96-django获取faviconico图标"><a class="anchor" href="#96-django获取faviconico图标">#</a> 96、Django 获取 favicon.ico 图标</h2><p>制作一个 ico 文件，使用 PS 或者某些在线生成 ico 的网站</p><p>将此文件命名为 “favicon.ico” 后放在 static / 下</p><p><img data-src="https://img-blog.csdnimg.cn/20200805104730363.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>在 urls.py 中定义路由：</p><pre><code>from django.urls import path
+from django.views.generic import RedirectView
+
+urlpatterns = [
+	# 访问favicon.ico 网站图标
+    path(&quot;favicon.ico&quot;,RedirectView.as_view(url='static/favicon.ico')),
+
+]
+</code></pre><h2 id="97-django-静态文件配置"><a class="anchor" href="#97-django-静态文件配置">#</a> 97、django 静态文件配置</h2><p><span class="exturl" data-url="aHR0cDovL3NldHRpbmdzLnB5">settings.py</span></p><pre><code>    STATIC_URL = '/static/'
+    # 添加静态资源路由地址
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    
+    ]
+    # 使用python manage.py collectstatic收集静态文件时时使用STATIC_ROOT
+    # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+</code></pre><p><span class="exturl" data-url="aHR0cDovL3VybHMucHk=">urls.py</span></p><pre><code>from django.urls import path, re_path
+from django.views.generic import RedirectView
+from django.views.static import serve
+
+from '你的项目名称' import settings
+urlpatterns = [
+   
+    path(&quot;favicon.ico&quot;,RedirectView.as_view(url='static/favicon.ico')),
+    re_path('static/(?P&lt;path&gt;.*)$', serve, &#123;'document_root': settings.STATICFILES_DIRS[0]&#125;),
+    
+]
+</code></pre><h2 id="98-django-jsonresponse返回中文时显示unicode编码u67e5u8be2"><a class="anchor" href="#98-django-jsonresponse返回中文时显示unicode编码u67e5u8be2">#</a> 98、django JsonResponse 返回中文时显示 unicode 编码（\u67e5\u8be2）</h2><p>原因<br>这个 unicode 编码，是 python3 默认返回的编码。</p><p>解决方案<br>JsonResponse 里面有个参数 json_dumps_params，设置为 json_dumps_params={‘ensure_ascii’:False} 即可。</p><pre><code>    data = &#123;'msg': '创建成功',&#125;
+    return JsonResponse(data=data, json_dumps_params=&#123;'ensure_ascii': False&#125;)
+</code></pre><h2 id="99-获取当前时间月份的首日与最后一天"><a class="anchor" href="#99-获取当前时间月份的首日与最后一天">#</a> 99、获取当前时间月份的首日与最后一天</h2><pre><code>import calendar
+
+def get_month_start_and_end(date=datetime.datetime.now()):
+    &quot;&quot;&quot;
+    获取当前时间的月份首日与最后一天
+    :param date:
+    :return: (首日，最后一天)
+    &quot;&quot;&quot;
+    year, month = str(date).split('-')[0], str(date).split('-')[1]
+    end = calendar.monthrange(int(year), int(month))[1]
+    return f'&#123;year&#125;-&#123;month&#125;-01', f'&#123;year&#125;-&#123;month&#125;-&#123;end&#125;'
+
+</code></pre><h2 id="100-xadmin后台批量操作"><a class="anchor" href="#100-xadmin后台批量操作">#</a> 100、xadmin 后台批量操作</h2><p><span class="exturl" data-url="aHR0cDovL2FkbWlueC5weQ==">adminx.py</span></p><pre><code>import xadmin
+from django.db.models import  Sum
+from xadmin.plugins.actions import BaseActionView
+
+class MyCountFeeAction(BaseActionView):
+    &quot;&quot;&quot;
+        用户余额统计
+        &quot;&quot;&quot;
+    action_name = &quot;countuserfee&quot;  #: 相当于这个 Action 的唯一标示, 尽量用比较针对性的名字
+    description = u'统计用户总余额'  #: 描述, 出现在 Action 菜单中, 可以使用 ``%(verbose_name_plural)s`` 代替 Model 的名字.
+    model_perm = 'view'  # 权限
+
+    def do_action(self, queryset):
+        all_balance = MallUser.objects.all().aggregate(Sum('balance'))
+        return HttpResponse(f'用户总余额&#123;all_balance&#125;')
+class UserAdmin(object):
+    &quot;&quot;&quot;用户信息管理&quot;&quot;&quot;
+    list_display = ['username', 'balance', 'status', 'addtime']
+    search_fields = ['username', ]
+    list_filter = ['status', 'addtime']
+    list_per_page = 30  # 默认每页数量
+    model_icon = 'fa fa-user'
+    list_editable = ['status']
+    ordering = ['-addtime']
+    actions = [ MyCountFeeAction]  # 添加批量选择操作
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/20200812233442373.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><h2 id="101-xadmin过滤器外键显示特定值比如只能过滤自己与超级管理员定义的数据"><a class="anchor" href="#101-xadmin过滤器外键显示特定值比如只能过滤自己与超级管理员定义的数据">#</a> 101、xadmin 过滤器外键显示特定值（比如只能过滤自己与超级管理员定义的数据）</h2><p>首先，修改 xadmin 源码，修改 xadmin/filters.py, 在 401 行，做如下修改，</p><pre><code>把self.lookup_choices = field.get_choices(include_blank=False)
+改为：
+
+# 调用自定义的方法
+if hasattr(model_admin, '&#123;field&#125;_choices'.format(field=field.name)):
+        self.lookup_choices = getattr(model_admin, '&#123;field&#125;_choices'.format(field=field.name))(field, request,params, model,model_admin,field_path)
+    else:
+        self.lookup_choices = field.get_choices(include_blank=False)
+</code></pre><p>如图:</p><p><img data-src="https://img-blog.csdnimg.cn/20200812234011656.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><p>然后，在 adminx.py 中定义过滤的方法：</p><pre><code>import xadmin
+from django.db.models import  Q, Sum
+from xadmin.plugins.actions import BaseActionView
+
+class MeasurePointAdmin(object):
+    # search_fields = ['user__name', 'user__account']  # 检索字段
+    list_display = ['num', 'elevation', 'correct_num', 'cumulative_amount']
+    list_filter = ['user', 'is_default', 'create_time']  # 分组过滤的字段
+    list_editable = ['num', 'elevation', 'correct_num', 'cumulative_amount']
+    ordering = ('id',)  # 设置默认排序字段，负号表示降序排序
+    list_per_page = 30  # 默认每页显示多少条记录，默认是100条
+    model_icon = 'fa fa-users'  # 左侧小图标
+    readonly_fields = ['user', 'is_default']
+    import_excel = True
+    actions = [MyCountFeeAction]
+	
+	# 定义的函数名必须是  字段名_choices
+    def user_choices(self, field, request, params, model, model_admin, field_path):
+        # 超级用户不做控制
+        if self.request.user.is_superuser:
+            return field.get_choices(include_blank=False)
+
+        # 过滤器只显示自己与超级管理员
+        user_lst = field.related_model._default_manager.filter(Q(id=self.request.user.id) | Q(is_superuser=True))
+        # 返回格式 [('pk','标题'),]
+        return [(user.id, user.username) for user in user_lst]
+</code></pre><p>效果:</p><p><img data-src="https://img-blog.csdnimg.cn/2020081223440761.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtX2lzX2Rj,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p><h2 id="102-django中的csrf局部禁用"><a class="anchor" href="#102-django中的csrf局部禁用">#</a> 102、Django 中的 CSRF 局部禁用</h2><p>为了避免没有 csrf token 而产生的 403 的 forbidden 错误，可以使用 csrf_exempt 装饰器来处理 POST、GET 请求的 View, 这种方式是 CSRF 局部禁用。</p><pre><code>from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+
+@method_decorator(csrf_exempt)
+def update_data(request):
+    if request.method == 'POST':
+    	pass
+	elif request.method == 'GET':
+    	pass
+
+</code></pre><h2 id="103-使用python命令创建django项目"><a class="anchor" href="#103-使用python命令创建django项目">#</a> 103、使用 python 命令创建 django 项目</h2><p>创建 django 项目<br>方式一：直接打开 pycharm 创建，选择 file-&gt;new project-&gt;django<br>方式二：通过命令创建<br>先创建虚拟环境：python -m venv django_venv<br>然后导入 django 库：pip install django -i <span class="exturl" data-url="aHR0cHM6Ly9weXBpLnR1bmEudHNpbmdodWEuZWR1LmNuL3NpbXBsZQ==">https://pypi.tuna.tsinghua.edu.cn/simple</span><br>最后使用命令创建：django-admin startproject my_django_project</p><h2 id="104-二维列表-二维数组行求和与列求和"><a class="anchor" href="#104-二维列表-二维数组行求和与列求和">#</a> 104、 二维列表、二维数组行求和与列求和</h2><pre><code>import pandas as pd
+from functools import reduce
+
+# 二维数组，对列和行求和
+a = [
+    ['', 0, '', 1, 4.1],
+    ['', 0, '', '', 4],
+    ['123', 0, '', 3, 4, 6,7],
+]
+
+
+def aa(x, y):
+    x = 0 if isinstance(x, str) else x
+    y = 0 if isinstance(y, str) else y
+    return x + y
+
+# 对行求和
+row_sum = [reduce(aa, i) for i in a]
+# 对列求和，只能处理相同长度的子元素
+column_sum_1 = [reduce(aa, i) for i in zip(*a)]
+# 对列求和，可以处理不同长度的子元素
+column_sum_2 = list(dict(pd.DataFrame(a).fillna(0).apply(lambda x: '' if any(isinstance(d, str) for d in x) else round(x.sum(), 2))).values())
+print('行求和：&#123;&#125;\r\n列求和(相同长度)：&#123;&#125;\r\n列求和：&#123;&#125;'.format(row_sum, column_sum_1, column_sum_2))
+</code></pre><p>输出：</p><pre><code>行求和：[5.1, 4, 20]
+列求和(相同长度)：[0, 0, 0, 4, 12.1]
+列求和：['', 0, '', '', 12.1, 6.0, 7.0]
+</code></pre><h2 id="105-获取时间字符串的月份数"><a class="anchor" href="#105-获取时间字符串的月份数">#</a> 105、获取时间字符串的月份数</h2><pre><code>from datetime import datetime
+    
+def get_months(start_month_str, end_month_str):
+    '''
+    # 获取时间字符串中的月份数
+    :param start_month_str: 开始字符串
+    :param end_month_str: 结束字符串
+    :return: 月份数
+    '''
+
+    end_month_date = datetime.strptime(end_month_str, '%Y-%m')
+    start_month_date = datetime.strptime(start_month_str, '%Y-%m')
+    end_year, end_month = end_month_date.year, end_month_date.month
+    start_year, start_month = start_month_date.year, start_month_date.month
+
+    return (end_year - start_year) *12 + (end_month - start_month) + 1
+
+
+end_month_str = '2021-02'
+start_month_str = '2020-07'
+print(get_months(start_month_str, end_month_str))
+
+输出：
+
+8
+</code></pre><h2 id="106-字符串不足补零"><a class="anchor" href="#106-字符串不足补零">#</a> 106、字符串不足补零</h2><pre><code>print('hello world'.zfill(15)) # 补0
+print('hello world'.rjust(15)) # 右对齐，补空格
+print('hello world'.ljust(15)) # 左对齐，补空格
+
+输出：
+
+0000hello world
+    hello world
+hello world  
+</code></pre><h2 id="107-时间戳转字符串日期"><a class="anchor" href="#107-时间戳转字符串日期">#</a> 107、时间戳转字符串日期</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> time</pre></td></tr><tr><td data-num="2"></td><td><pre>t1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>t1<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">"%Y-%m-%d %H:%M:%S"</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>t1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>输出：</pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token number">1621741567.082192</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token number">2021</span><span class="token operator">-</span><span class="token number">05</span><span class="token operator">-</span><span class="token number">23</span> <span class="token number">11</span><span class="token punctuation">:</span><span class="token number">46</span><span class="token punctuation">:</span><span class="token number">07</span></pre></td></tr></table></figure><p>使用函数：</p><pre><code># !/usr/bin/python
+# -*- coding: utf-8 -*-
+
+&quot;&quot;&quot;
+@contact: 微信 1257309054
+@file: 时间戳转日期.py
+@time: 2022/6/27 17:16
+@author: LDC
+&quot;&quot;&quot;
+import time
+import datetime
+
+
+# 正确10位长度的时间戳可精确到秒，11-14位长度则是包含了毫秒
+def int_to_datetime(intValue):
+    if len(str(intValue)) == 10:
+        # 精确到秒
+        timeValue = time.localtime(intValue)
+        tempDate = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, timeValue)
+        datetimeValue = datetime.datetime.strptime(tempDate, &quot;%Y-%m-%d %H:%M:%S&quot;)
+    elif 10 &lt; len(str(intValue)) and len(str(intValue)) &lt; 15:
+        # 精确到毫秒
+        k = len(str(intValue)) - 10
+        timetamp = datetime.datetime.fromtimestamp(intValue / (1 * 10 ** k))
+        datetimeValue = timetamp.strftime(&quot;%Y-%m-%d %H:%M:%S.%f&quot;)
+    else:
+        return -1
+    return datetimeValue
+
+
+time1 = 1656321420
+time2 = 1656321086560
+print(int_to_datetime(time1))
+print(int_to_datetime(time2))
+
+'''
+输出：
+2022-06-27 17:17:00
+2022-06-27 17:11:26.560000
+'''
+</code></pre><h2 id="108-列表转字符串"><a class="anchor" href="#108-列表转字符串">#</a> 108、列表转字符串</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>输出：</pre></td></tr><tr><td data-num="5"></td><td><pre>`<span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span>`</pre></td></tr></table></figure><h2 id="109-pip国内镜像源"><a class="anchor" href="#109-pip国内镜像源">#</a> 109、pip 国内镜像源</h2><pre><code>pip install 库名 -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
+清华：-i https://pypi.tuna.tsinghua.edu.cn/simple
+
+阿里云：-i http://mirrors.aliyun.com/pypi/simple/
+
+中国科技大学 -i https://pypi.mirrors.ustc.edu.cn/simple/
+
+华中理工大学：-i http://pypi.hustunique.com/
+
+山东理工大学：-i http://pypi.sdutlinux.org/ 
+
+豆瓣：-i http://pypi.douban.com/simple/
+</code></pre><h2 id="110-python把时间字符串转换成刚刚-1天前-3个月前-1年前"><a class="anchor" href="#110-python把时间字符串转换成刚刚-1天前-3个月前-1年前">#</a> 110、python 把时间字符串转换成刚刚、1 天前、3 个月前、1 年前</h2><pre><code>import datetime
+import time
+
+
+def date_interval(date_str):
+    '''
+    获取时间间隔
+    1分钟前，2分钟前，10分钟前，1小时前，2小时前，1天前，2天前，3天前，1个月前，3个月前，1年前，3年前
+    :param date_str: 时间字符串
+    :return: 字符串
+    '''
+    date_str = time.strptime(date_str, '%Y-%m-%d %H:%M:%S')
+    # 将时间元组转换为时间戳
+    t = time.mktime(date_str)
+
+    # 当前时间
+    seconds = time.time() - t
+
+    years = int(seconds // (60 * 60 * 24 * 365))
+    if years:
+        return '&#123;&#125;年前'.format(years)
+    months = int(seconds // (60 * 60 * 24 * 30))
+    if months:
+        return '&#123;&#125;月前'.format(months)
+    days = int(seconds // (60 * 60 * 24))
+    if days:
+        return '&#123;&#125;天前'.format(days)
+    hours = int(seconds // (60 * 60))
+    if hours:
+        return '&#123;&#125;小时前'.format(hours)
+    minutes = int(seconds // (60))
+    if minutes:
+        return '&#123;&#125;分钟前'.format(minutes)
+    return '刚刚'
+
+
+if __name__ == '__main__':
+    date1 = '2019-07-10 15:27:51'
+    date2 = '2021-07-10 15:27:51'
+    date3 = '2021-08-10 15:27:51'
+    date4 = '2021-08-12 11:01:51'
+    date5 = datetime.datetime.now() + datetime.timedelta(seconds=-3)
+    date5 = date5.strftime('%Y-%m-%d %H:%M:%S')
+    print(date_interval(date1))
+    print(date_interval(date2))
+    print(date_interval(date3))
+    print(date_interval(date4))
+    print(date_interval(date5))
+</code></pre><h2 id="111-django使用orm执行sql语句"><a class="anchor" href="#111-django使用orm执行sql语句">#</a> 111、Django 使用 ORM 执行 sql 语句</h2><p>通过 raw 函数执行</p><pre><code>alarm_datas = gsm.AlertMessage.objects.raw('''
+                select am_all.id, am_all.sensor_number
+                    FROM alert_message as am_all
+                    where 
+                        am_all.real='1'
+                        and am_all.is_show=1
+                    order by am_all.alarm_level desc
+                ''')
+for ad in alarm_datas:
+	print(ad.sensor_number)
+
+</code></pre><h2 id="112-django通过变量字段获取数据"><a class="anchor" href="#112-django通过变量字段获取数据">#</a> 112、Django 通过变量字段获取数据</h2><p>通过方法 <code>__getattribute__</code> 来获取</p><pre><code>alert_messages = AlertMessage.objects.filter(real=0)
+am_fields = ['id', 'real', 'name']
+for am in alert_messages:
+	for i in range(len(am_fields)):
+		print(am_fields[i], am.__getattribute__(am_fields[i]))
+
+</code></pre><h2 id="113-django查询变量字段-更新变量字段"><a class="anchor" href="#113-django查询变量字段-更新变量字段">#</a> 113、Django 查询变量字段、更新变量字段</h2><p>通过 <code>**&#123;变量名:值&#125;</code> 来操作</p><pre><code>field = 'device_code'
+# 查询
+device_infos = gsm.DeviceInfo.objects.filter(**&#123;field: '012'&#125;)
+# 更新
+gsm.DeviceInfo.objects.filter(device_code='012').update(**&#123;field : '0'&#125;)
+
+</code></pre><h2 id="114-vue生成dist文件"><a class="anchor" href="#114-vue生成dist文件">#</a> 114、vue 生成 dist 文件</h2><p>安装 npm，到<span class="exturl" data-url="aHR0cHM6Ly9ub2RlanMub3JnL2VuL2Rvd25sb2FkLw==">官网下载</span><br>在 vue 项目下打开 cmd，输入命令</p><pre><code>npm run build
+</code></pre><p>如果报错，npm ERR! missing script: build，<br>则使用以下命令</p><pre><code>npm run build:prod
+</code></pre><p>具体看 package.json</p><p><img data-src="https://img-blog.csdnimg.cn/eff15dcd4c1d499f9641d0ac25c09bc0.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5Lic5pyo5pyI,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p><h2 id="115-python获取电脑磁盘-cpu-内存使用情况"><a class="anchor" href="#115-python获取电脑磁盘-cpu-内存使用情况">#</a> 115、python 获取电脑磁盘、CPU、内存使用情况</h2><pre><code>import psutil
+#  pip install psutil
+
+# 获取本机磁盘使用率和剩余空间G信息
+def get_disk_info():
+    # 循环磁盘分区
+    content = &quot;&quot;
+    for disk in psutil.disk_partitions():
+        # 读写方式 光盘 or 有效磁盘类型
+        if 'cdrom' in disk.opts or disk.fstype == '':
+            continue
+        disk_name_arr = disk.device.split(':')
+        disk_name = disk_name_arr[0]
+        disk_info = psutil.disk_usage(disk.device)
+        # 磁盘剩余空间，单位G
+        free_disk_size = disk_info.free//1024//1024//1024
+        # 当前磁盘使用率和剩余空间G信息
+        info = &quot;&#123;&#125;盘使用率：&#123;&#125;%%， 剩余空间：&#123;&#125;G &quot;.format(disk_name, str(disk_info.percent), free_disk_size)
+        # 拼接多个磁盘的信息
+        content = content + info
+    print(content)
+
+# cpu信息
+def get_cpu_info():
+    cpu_percent = psutil.cpu_percent(interval=1)
+    cpu_info = &quot;CPU使用率：%i%%&quot; % cpu_percent
+    print(cpu_info)
+
+# 内存信息
+def get_memory_info():
+    virtual_memory = psutil.virtual_memory()
+    used_memory = virtual_memory.used/1024/1024/1024
+    free_memory = virtual_memory.free/1024/1024/1024
+    memory_percent = virtual_memory.percent
+    memory_info = &quot;内存使用：%0.2fG，使用率%0.1f%%，剩余内存：%0.2fG&quot; % (used_memory, memory_percent, free_memory)
+    print(memory_info)
+
+if __name__ == '__main__':
+    get_disk_info()
+    get_cpu_info()
+    get_memory_info()
+</code></pre><h2 id="116-max比较字典列表"><a class="anchor" href="#116-max比较字典列表">#</a> 116、max 比较字典列表</h2><pre><code>'''
+使用max函数比较字典列表对象
+需求：找出用户组最大id的字典
+'''
+def com_id(f):
+    '''
+    比较用用户ids列表
+    :param f: 字典
+    :return: 返回最大的用户id
+    '''
+    return max(f['user_ids'])
+
+friends_added = [
+        &#123;'user_ids': [1, 2], 'create_at': '2020-01-01'&#125;,
+        &#123;'user_ids': [3, 6], 'create_at': '2020-01-02'&#125;,
+        &#123;'user_ids': [2, 1], 'create_at': '2020-02-02'&#125;,
+        &#123;'user_ids': [4, 1], 'create_at': '2020-02-02'&#125;,
+    ]
+# max函数中使用key参数，指定自定义函数来比较
+item = max(friends_added, key=com_id)
+item_1 = max(friends_added, key=lambda f: max(f['user_ids'])) # com_id可以转成lambda函数
+print(item)
+print(item_1)
+
+
+输出：
+
+&#123;'user_ids': [3, 6], 'create_at': '2020-01-02'&#125;
+&#123;'user_ids': [3, 6], 'create_at': '2020-01-02'&#125;
+</code></pre><h2 id="117-django查询表的具体字段"><a class="anchor" href="#117-django查询表的具体字段">#</a> 117、django 查询表的具体字段</h2><pre><code>ExampleModel.objects.values('id', 'username')
+# 返回的结果是QuerySet， 里面的元素是dict格式
+# [&#123;'id':1, 'username': 'Austin'&#125;, &#123;'id':2, 'username':'Sam'&#125;, ...]
+# 相当于SQL中的SELECT id, username FROM ......, 
+# 只返回对应属性（字段）的值
+</code></pre><h2 id="118-mysql查询数据添加自增序号"><a class="anchor" href="#118-mysql查询数据添加自增序号">#</a> 118、MySQL 查询数据添加自增序号</h2><pre><code>set @i = 0;
+select waveform, '沿桥风吹' as label ,(@i:=@i+1) xh from alert_message where is_real=1 and node_id=138
+
+</code></pre><h2 id="119-mysql-时间截取年月日"><a class="anchor" href="#119-mysql-时间截取年月日">#</a> 119、MySQL 时间截取年月日</h2><pre><code>select id,
+			addtime, 
+			date_format(addtime,'%Y-%m-%d') as short_time 
+	from alert_message 
+	where date_format(addtime,'%Y-%m-%d') = '2022-03-13'
+</code></pre><p><img data-src="https://img-blog.csdnimg.cn/37cec67fa1e1458f9aba1b745600a493.png" alt="在这里插入图片描述"></p><h2 id="120-列表取奇数下标值"><a class="anchor" href="#120-列表取奇数下标值">#</a> 120、 列表取奇数下标值</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>list1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'奇数下标值'</span><span class="token punctuation">,</span>list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>输出：</pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>奇数下标值 <span class="token punctuation">[</span><span class="token string">'b'</span><span class="token punctuation">,</span> <span class="token string">'d'</span><span class="token punctuation">]</span></pre></td></tr></table></figure><h2 id="121-列表取偶数下标值"><a class="anchor" href="#121-列表取偶数下标值">#</a> 121、列表取偶数下标值</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>list1<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'偶数下标值'</span><span class="token punctuation">,</span>list1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>偶数下标值 <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'c'</span><span class="token punctuation">,</span> <span class="token string">'e'</span><span class="token punctuation">]</span></pre></td></tr></table></figure><h2 id="122-列表相同元素分类-分组"><a class="anchor" href="#122-列表相同元素分类-分组">#</a> 122、列表相同元素分类、分组</h2><figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> itertools</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>data <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre>a <span class="token operator">=</span><span class="token punctuation">[</span><span class="token builtin">list</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span> <span class="token keyword">for</span> key<span class="token punctuation">,</span> group <span class="token keyword">in</span> itertools<span class="token punctuation">.</span>groupby<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>输出：</pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'a'</span><span class="token punctuation">]</span><span class="token punctuation">]</span></pre></td></tr></table></figure><h2 id="123-ubuntu切换用户"><a class="anchor" href="#123-ubuntu切换用户">#</a> 123、ubuntu 切换用户</h2><p>1）从 user 用户切换到 root 用户<br>sudo su<br>2）从 root 用户切回 user 用户<br>su user (user 是你自己安装时候的用户名)，或是直接输入 exit，也可 Ctrl+D 组合键推出</p><h2 id="124-numpy二维数组获取某一列"><a class="anchor" href="#124-numpy二维数组获取某一列">#</a> 124、numpy 二维数组获取某一列</h2><pre><code>import numpy as np
+
+a = [
+    [1, 2, 3, 4, 5, 6],
+    [7, 8, 9, 10, 11, 12],
+    [13.2, 14.8, 15.9, 16.10, 16.11, 17.12],
+]
+
+a_np = np.array(a)  # 把二维列表转成numpy数组
+print('第一行', a_np[0].tolist())  # 获取第一行
+print('第一列', a_np[:, 0].tolist())  # 获取第一列
+
+输出：
+
+第一行 [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+第一列 [1.0, 7.0, 13.2]
+</code></pre></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2022-08-17 21:56:19" itemprop="dateModified" datetime="2022-08-17T21:56:19+08:00">2022-08-17</time></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="Modesty 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="Modesty 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="Modesty 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>Modesty <i class="ic i-at"><em>@</em></i>Modesty</li><li class="link"><strong>本文链接：</strong> <a href="https://hmj-modesty.github.io/2022/08/16/python%E7%BB%84%E4%BB%B6/" title="python 组件">https://hmj-modesty.github.io/2022/08/16/python组件/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/2022/08/13/computer-science/AI-learn/AIlearn/Matplotlib%E5%9F%BA%E7%A1%80/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="Matplotlib基础"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> 人工智能基础</span><h3>Matplotlib基础</h3></a></div><div class="item right"><a href="/2022/08/16/computer-science/AI-learn/AIlearn/Numpy%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh0m9pdj20zk0m8hdt.jpg" title="numpy基础"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> 人工智能基础</span><h3>numpy基础</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%94%9F%E6%88%906%E4%BD%8D%E6%95%B0%E5%AD%97%E9%9A%8F%E6%9C%BA%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">1. 生成 6 位数字随机验证码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2md5%E5%8A%A0%E5%AF%86"><span class="toc-number">2.</span> <span class="toc-text">2.md5 加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%94%9F%E6%88%90%E5%94%AF%E4%B8%80token"><span class="toc-number">3.</span> <span class="toc-text">3. 生成唯一 token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%91%E9%80%81%E6%89%8B%E6%9C%BA%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">4、发送手机验证码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E9%80%BB%E8%BE%91"><span class="toc-number">4.1.</span> <span class="toc-text">实现逻辑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">5、生成二维码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E5%BE%AE%E4%BF%A1%E7%BE%A4%E5%8F%91"><span class="toc-number">6.</span> <span class="toc-text">6. 微信群发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%A4%8D"><span class="toc-number">7.</span> <span class="toc-text">7、微信自动回复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%8F%90%E5%8F%96django%E4%B8%ADmodel%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E5%90%8D%E5%8F%98%E6%88%90%E5%AD%97%E5%85%B8-%E5%88%97%E8%A1%A8"><span class="toc-number">8.</span> <span class="toc-text">8、提取 Django 中 model 中的字段名变成字典、列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%BB%99%E8%A1%A8%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">9.</span> <span class="toc-text">9、数据库中给表创建数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10%E6%8D%95%E6%8D%89%E5%BC%82%E5%B8%B8"><span class="toc-number">10.</span> <span class="toc-text">10. 捕捉异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">11.</span> <span class="toc-text">11、获取当前时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B7"><span class="toc-number">12.</span> <span class="toc-text">12、订单编号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-mysql%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%86%99%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4"><span class="toc-number">13.</span> <span class="toc-text">13、mysql 自动填写当前时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-drf%E5%8A%A8%E6%80%81%E8%BF%87%E6%BB%A4%E6%9F%A5%E8%AF%A2"><span class="toc-number">14.</span> <span class="toc-text">14、drf 动态过滤查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-linux%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cpython%E7%A8%8B%E5%BA%8F"><span class="toc-number">15.</span> <span class="toc-text">15、linux 后台运行 python 程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E8%BF%BD%E5%8A%A0%E5%A4%96%E9%94%AE"><span class="toc-number">16.</span> <span class="toc-text">16、追加外键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%E5%86%99%E8%AF%BBcsv%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%8B%A5%E5%AD%98%E5%9C%A8%E5%B0%B1%E4%BB%8Ecsv%E4%B8%AD%E5%88%A0%E9%99%A4"><span class="toc-number">17.</span> <span class="toc-text">17、写 &#x2F; 读 CSV 文件，查看是否存在，若存在就从 csv 中删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-django%E4%B8%AD%E4%BB%8Erequest%E8%8E%B7%E5%8F%96%E8%AE%BF%E9%97%AE%E8%B7%AF%E5%BE%84"><span class="toc-number">18.</span> <span class="toc-text">18、django 中从 request 获取访问路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-django%E6%94%B6%E9%9B%86%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-number">19.</span> <span class="toc-text">19、Django 收集静态文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-xadmin%E6%8F%92%E4%BB%B6"><span class="toc-number">20.</span> <span class="toc-text">20、xadmin 插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-uwsgi%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF"><span class="toc-number">21.</span> <span class="toc-text">21、uwsgi 自动重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-number">22.</span> <span class="toc-text">22、谷歌浏览器快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-git%E5%85%8B%E9%9A%86%E5%88%86%E6%94%AF"><span class="toc-number">23.</span> <span class="toc-text">23、git 克隆分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-mysql%E6%9B%B4%E6%96%B0%E8%AF%AD%E5%8F%A5-%E6%96%B0%E5%A2%9E%E5%88%97-%E5%88%A0%E9%99%A4%E5%88%97"><span class="toc-number">24.</span> <span class="toc-text">24、mysql 更新语句、新增列、删除列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">25.</span> <span class="toc-text">25、删除指定格式的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-%E8%AE%A1%E7%AE%97%E6%96%87%E4%BB%B6%E6%80%BB%E6%95%B0"><span class="toc-number">26.</span> <span class="toc-text">26、计算文件总数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-%E8%AE%A1%E7%AE%97%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F"><span class="toc-number">27.</span> <span class="toc-text">27、计算文件夹大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-django%E5%AE%9E%E7%8E%B0jsonp%E8%B7%A8%E5%9F%9F"><span class="toc-number">28.</span> <span class="toc-text">28、Django 实现 jsonp 跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-%E5%BE%AE%E4%BF%A1%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="toc-number">29.</span> <span class="toc-text">29、微信获取用户信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-uwsgi%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98"><span class="toc-number">30.</span> <span class="toc-text">30、uwsgi 初始配置问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-django%E4%B8%ADdrf%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">31.</span> <span class="toc-text">31、django 中 drf 序列化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="toc-number">32.</span> <span class="toc-text">32、第三方库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-requests%E8%AF%B7%E6%B1%82https%E6%90%BA%E5%B8%A6ca%E8%AF%81%E4%B9%A6"><span class="toc-number">33.</span> <span class="toc-text">33、requests 请求 https 携带 CA 证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#34-django%E5%88%9B%E5%BB%BA%E7%BC%93%E5%AD%98%E5%91%BD%E4%BB%A4"><span class="toc-number">34.</span> <span class="toc-text">34、django 创建缓存命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#35-django-%E6%9B%B4%E6%94%B9%E8%B6%85%E7%BA%A7%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="toc-number">35.</span> <span class="toc-text">35、Django 更改超级用户密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#36-restframe%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98"><span class="toc-number">36.</span> <span class="toc-text">36、restframe 使用缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#37-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">37.</span> <span class="toc-text">37、数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">38.</span> <span class="toc-text">38、linux 常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-xadmin%E7%A6%81%E6%AD%A2%E5%A2%9E%E5%8A%A0-%E5%88%A0%E9%99%A4"><span class="toc-number">39.</span> <span class="toc-text">39、xadmin 禁止增加、删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%87%8F"><span class="toc-number">40.</span> <span class="toc-text">40、时间格式字符串相减</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-%E6%98%BE%E7%A4%BA%E5%BE%AA%E7%8E%AF%E8%BF%9B%E5%BA%A6%E6%9D%A1"><span class="toc-number">41.</span> <span class="toc-text">41、显示循环进度条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-%E6%8A%8A%E5%88%97%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%AD%97%E5%85%B8%E8%BD%AC%E6%88%90csv%E6%96%87%E4%BB%B6"><span class="toc-number">42.</span> <span class="toc-text">42、把列表中的字典转成 csv 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#43-windows%E6%B7%BB%E5%8A%A0%E5%8F%B3%E9%94%AE%E6%96%B0%E5%BB%BAmarkdown%E6%96%87%E4%BB%B6"><span class="toc-number">43.</span> <span class="toc-text">43、windows 添加右键新建 MarkDown 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-redis%E8%AE%BE%E7%BD%AE%E5%80%BC%E5%AE%9A%E6%97%B6%E8%BF%87%E6%9C%9F"><span class="toc-number">44.</span> <span class="toc-text">44、redis 设置值定时过期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-linux%E6%A0%B9%E6%8D%AE%E7%AB%AF%E5%8F%A3%E6%9D%80%E8%BF%9B%E7%A8%8B"><span class="toc-number">45.</span> <span class="toc-text">45、linux 根据端口杀进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#46-%E7%9B%91%E6%8E%A7linux%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F"><span class="toc-number">46.</span> <span class="toc-text">46、监控 linux 网络流量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#47-win10%E6%B7%BB%E5%8A%A0%E5%8F%B3%E9%94%AE%E6%89%93%E5%BC%80cmd"><span class="toc-number">47.</span> <span class="toc-text">47、win10 添加右键打开 cmd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#48-xadmin%E5%90%8E%E5%8F%B0%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E4%B8%8B%E6%8B%89%E6%A1%86%E5%AE%8C%E6%95%B4%E5%86%85%E5%AE%B9"><span class="toc-number">48.</span> <span class="toc-text">48、xadmin 后台无法显示下拉框完整内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#49-xadmin%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95"><span class="toc-number">49.</span> <span class="toc-text">49、xadmin 单点登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#50-django-restful-%E5%A4%9A%E4%B8%AAmodels%E6%95%B0%E6%8D%AE%E8%A1%A8%E5%BA%8F%E5%88%97%E5%8C%96%E5%90%88%E5%B9%B6%E8%BF%94%E5%9B%9E%E4%B8%80%E6%AC%A1%E8%AF%B7%E6%B1%82%E8%BF%94%E5%9B%9E%E5%A4%9A%E4%B8%AA%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E6%95%B0%E6%8D%AE"><span class="toc-number">50.</span> <span class="toc-text">50、Django restful 多个 models 数据表序列化合并返回（一次请求返回多个序列化器数据）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-django%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E8%BF%94%E5%9B%9E%E5%A4%96%E9%94%AE%E5%85%B3%E8%81%94%E6%95%B0%E6%8D%AE"><span class="toc-number">51.</span> <span class="toc-text">51、 Django 序列化器返回外键关联数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#52-python-django%E9%80%9A%E8%BF%87user-agent%E5%88%A4%E6%96%AD%E8%AF%B7%E6%B1%82%E6%9D%A5%E6%BA%90%E6%98%AF%E5%BE%AE%E4%BF%A1%E6%89%AB%E4%B8%80%E6%89%AB%E6%88%96%E8%80%85%E6%98%AF%E6%94%AF%E4%BB%98%E5%AE%9D%E6%89%AB%E4%B8%80%E6%89%AB"><span class="toc-number">52.</span> <span class="toc-text">52、python Django 通过 User Agent 判断请求来源是微信扫一扫或者是支付宝扫一扫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#53-xadmin%E5%90%8E%E5%8F%B0%E9%9B%86%E6%88%90%E5%AF%BC%E5%85%A5%E6%8F%92%E4%BB%B6%E5%AF%BC%E5%85%A5excel%E6%96%87%E4%BB%B6"><span class="toc-number">53.</span> <span class="toc-text">53、xadmin 后台集成’导入‘插件，导入 excel 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#54-django%E4%B8%AD%E6%9F%A5%E6%89%BE%E4%BB%8A%E5%A4%A9%E8%BF%9B%E8%B4%A6%E9%87%91%E9%A2%9D"><span class="toc-number">54.</span> <span class="toc-text">54、Django 中查找今天进账金额</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#55-%E5%88%A4%E6%96%AD%E6%98%AF%E4%BB%80%E4%B9%88%E7%B3%BB%E7%BB%9F"><span class="toc-number">55.</span> <span class="toc-text">55、判断是什么系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#56-sql%E6%9F%A5%E8%AF%A2"><span class="toc-number">56.</span> <span class="toc-text">56、sql 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#57-xadmin%E5%90%8E%E5%8F%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF"><span class="toc-number">57.</span> <span class="toc-text">57、 xadmin 后台删除数据出现错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#58-xdamin%E9%99%90%E5%88%B6%E7%94%A8%E6%88%B7%E7%82%B9%E5%87%BB"><span class="toc-number">58.</span> <span class="toc-text">58、xdamin 限制用户点击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#59-%E8%8E%B7%E5%8F%96%E5%85%AC%E4%BC%97%E5%8F%B7%E5%85%B3%E6%B3%A8url"><span class="toc-number">59.</span> <span class="toc-text">59、获取公众号关注 url</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#60-xadmin%E5%90%8E%E5%8F%B0%E7%94%A8%E6%88%B7%E6%93%8D%E4%BD%9C%E8%A1%A8%E6%9D%83%E9%99%90"><span class="toc-number">60.</span> <span class="toc-text">60、xadmin 后台用户操作表权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#61-%E4%BD%BF%E7%94%A8nginx%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE"><span class="toc-number">61.</span> <span class="toc-text">61、使用 nginx 部署项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#62-xadmin%E5%90%8E%E5%8F%B0%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E6%89%BE%E5%9B%9E%E5%AF%86%E7%A0%81"><span class="toc-number">62.</span> <span class="toc-text">62、xadmin 后台发送邮件找回密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#63-xadmin%E5%A4%96%E9%94%AE%E4%B8%8B%E6%8B%89%E6%A1%86%E6%B7%BB%E5%8A%A0%E8%BF%87%E6%BB%A4"><span class="toc-number">63.</span> <span class="toc-text">63、xadmin 外键下拉框添加过滤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#64-xadmin%E5%8D%B3%E6%97%B6%E7%BC%96%E8%BE%91%E5%99%A8%E5%8E%BB%E6%8E%89%E7%A9%BA%E6%A0%87%E7%AD%BE"><span class="toc-number">64.</span> <span class="toc-text">64、xadmin 即时编辑器去掉空标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#65-%E7%94%A8%E6%88%B7%E5%A2%9E%E5%8A%A0%E7%9A%84%E5%B0%8F%E7%BB%84%E4%BB%B6%E8%AE%A9%E5%85%B6%E4%BB%96%E7%94%A8%E6%88%B7%E5%8F%AF%E8%A7%81"><span class="toc-number">65.</span> <span class="toc-text">65、用户增加的小组件，让其他用户可见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#66-pip-install-uwsgi%E5%87%BA%E9%94%99"><span class="toc-number">66.</span> <span class="toc-text">66、pip install uwsgi 出错</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#66-xadmin%E5%90%8E%E5%8F%B0%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E6%85%A2%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">67.</span> <span class="toc-text">66、xadmin 后台加载数据慢，解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#67-xadmin%E5%AF%BC%E5%87%BA%E6%8F%92%E4%BB%B6%E5%A4%84%E7%90%86%E5%A2%9E%E5%8A%A0%E5%AF%BC%E5%87%BA%E5%8B%BE%E9%80%89%E6%95%B0%E6%8D%AE%E9%A1%B9"><span class="toc-number">68.</span> <span class="toc-text">67 、xadmin 导出插件处理，增加导出勾选数据项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%8A%A0%E8%BD%BDjs%E6%96%87%E4%BB%B6"><span class="toc-number">68.0.1.</span> <span class="toc-text">1、加载 js 文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9exportpy%E5%90%8E%E7%AB%AF%E5%A4%84%E7%90%86%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="toc-number">68.0.2.</span> <span class="toc-text">2、修改 export.py，后端处理下载文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#export-modal-%7B%7Bet.type%7D%7D"><span class="toc-number">68.0.3.</span> <span class="toc-text">{% trans &quot;Export&quot; %} {{et.name}}</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#68-%E4%BD%BF%E7%94%A8f%E6%9F%A5%E8%AF%A2%E6%9B%B4%E6%96%B0%E7%94%A8%E6%88%B7%E9%87%8D%E8%A6%81%E6%95%B0%E6%8D%AE"><span class="toc-number">69.</span> <span class="toc-text">68、使用 F 查询更新用户重要数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#69-%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA%E6%A8%A1%E5%9D%97"><span class="toc-number">70.</span> <span class="toc-text">69、日志输出模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#70-%E5%AD%97%E5%85%B8%E6%8E%92%E5%BA%8F"><span class="toc-number">71.</span> <span class="toc-text">70、字典排序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%88%97%E8%A1%A8%E4%B8%AD%E5%AD%97%E5%85%B8%E6%8C%89%E5%A4%9A%E4%B8%AA%E9%94%AE%E5%80%BC%E6%8E%92%E5%BA%8F"><span class="toc-number">71.1.</span> <span class="toc-text">对列表中字典按多个键值排序</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#71-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BA%92%E8%BD%AC-%E6%AF%94%E8%BE%83%E5%A4%A7%E5%B0%8F"><span class="toc-number">72.</span> <span class="toc-text">71、时间格式与字符串互转、比较大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#72-python%E6%8A%8Au%E5%BC%80%E5%A4%B4%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E4%B8%AD%E6%96%87"><span class="toc-number">73.</span> <span class="toc-text">72、python 把’\u’开头的字符串转中文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#73-django%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E6%97%B6%E5%87%BA%E7%8E%B0no-changes-detected%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">74.</span> <span class="toc-text">73、django 进行数据迁移时出现 No changes detected 解决方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#74-ubuntu%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%88%B0windows%E6%A1%8C%E9%9D%A2"><span class="toc-number">75.</span> <span class="toc-text">74、ubuntu 下载文件到 windows 桌面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#75-git%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E6%97%A5%E5%BF%97"><span class="toc-number">76.</span> <span class="toc-text">75、git 查看提交日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#76-python%E7%BF%BB%E8%AF%91%E6%A8%A1%E5%9D%97"><span class="toc-number">77.</span> <span class="toc-text">76、python 翻译模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#77-python%E5%AE%9E%E7%8E%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E5%AD%97%E5%85%B8"><span class="toc-number">78.</span> <span class="toc-text">77、python 实现字符串转字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#78-django-app-%E5%A6%82%E4%BD%95%E5%9C%A8%E5%90%8E%E5%8F%B0%E6%98%BE%E7%A4%BA%E4%B8%AD%E6%96%87%E5%90%8D"><span class="toc-number">79.</span> <span class="toc-text">78、django app 如何在后台显示中文名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#79-%E4%BD%BF%E7%94%A8python%E7%BB%99excel%E6%8C%87%E5%AE%9A%E8%A1%8C%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="toc-number">80.</span> <span class="toc-text">79、使用 python 给 Excel 指定行添加数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#80-python%E4%B8%AD%E7%9A%84format%E6%A0%BC%E5%BC%8F%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">81.</span> <span class="toc-text">80、python 中的 format 格式拼接字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#81-%E6%95%B0%E6%8D%AE%E5%BA%93inner-join-full-join-left-join-union-union-all%E5%8C%BA%E5%88%AB"><span class="toc-number">82.</span> <span class="toc-text">81、数据库 inner join、full join、left join、union、union all 区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#82-windows%E7%94%B5%E8%84%91%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">83.</span> <span class="toc-text">82、windows 电脑查看端口使用情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#83-django%E7%94%9F%E6%88%90%E8%A1%A8%E5%92%8C%E5%8F%8D%E5%90%91%E7%94%9F%E6%88%90model"><span class="toc-number">84.</span> <span class="toc-text">83、Django 生成表和反向生成 Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#84-windows%E7%9A%84hosts%E6%96%87%E4%BB%B6%E4%BD%8D%E7%BD%AE"><span class="toc-number">85.</span> <span class="toc-text">84、windows 的 hosts 文件位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#85-postgresql%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">86.</span> <span class="toc-text">85、postgresql 数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#86-python%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E5%B8%A6%E9%A2%9C%E8%89%B2%E7%9A%84%E6%96%87%E5%AD%97%E6%96%B9%E6%B3%95"><span class="toc-number">87.</span> <span class="toc-text">86、python 控制台输出带颜色的文字方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#87-%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BE%93%E5%87%BA%E7%99%BD%E8%89%B2%E6%96%B9%E6%A1%86"><span class="toc-number">88.</span> <span class="toc-text">87、控制台输出白色方框</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#88-xadmin%E5%90%8E%E5%8F%B0%E7%BC%96%E8%BE%91%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%AD%97%E6%AE%B5"><span class="toc-number">89.</span> <span class="toc-text">88、xadmin 后台编辑多对多字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#89-django%E5%90%8E%E5%8F%B0%E9%80%9A%E8%BF%87%E6%8C%89%E9%92%AE%E6%98%BE%E7%A4%BAtextfield%E5%AD%97%E6%AE%B5%E5%86%85%E5%AE%B9"><span class="toc-number">90.</span> <span class="toc-text">89、Django 后台通过按钮显示 TextField 字段内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#90-%E5%89%8D%E7%AB%AF%E5%88%A4%E6%96%AD%E4%B8%8A%E4%BC%A0%E7%9A%84%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%BE%E7%89%87%E4%B8%94%E9%99%90%E5%88%B6%E5%A4%A7%E5%B0%8F%E4%B8%BA300kb"><span class="toc-number">91.</span> <span class="toc-text">90、前端判断上传的文件是否为图片且限制大小为 300kB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#91-form%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4%E5%89%8D%E9%AA%8C%E8%AF%81"><span class="toc-number">92.</span> <span class="toc-text">91、form 表单提交前验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#92-%E6%9C%89%E5%BA%8F%E5%AD%97%E5%85%B8"><span class="toc-number">93.</span> <span class="toc-text">92、有序字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#93-python%E5%9C%A8windows%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%9E%E7%8E%B0tts%E6%96%87%E5%AD%97%E8%BD%AC%E8%AF%AD%E9%9F%B3"><span class="toc-number">94.</span> <span class="toc-text">93、Python 在 Windows 系统下实现 TTS（文字转语音）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#94-%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E9%97%B9%E9%92%9F"><span class="toc-number">95.</span> <span class="toc-text">94、定义一个简单闹钟</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#95-%E6%A0%B9%E6%8D%AE%E5%B9%B4%E6%9C%88%E8%8E%B7%E5%8F%96%E5%BD%93%E6%9C%88%E5%A4%A9%E6%95%B0"><span class="toc-number">96.</span> <span class="toc-text">95、根据年月获取当月天数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#96-django%E8%8E%B7%E5%8F%96faviconico%E5%9B%BE%E6%A0%87"><span class="toc-number">97.</span> <span class="toc-text">96、Django 获取 favicon.ico 图标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#97-django-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-number">98.</span> <span class="toc-text">97、django 静态文件配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#98-django-jsonresponse%E8%BF%94%E5%9B%9E%E4%B8%AD%E6%96%87%E6%97%B6%E6%98%BE%E7%A4%BAunicode%E7%BC%96%E7%A0%81u67e5u8be2"><span class="toc-number">99.</span> <span class="toc-text">98、django JsonResponse 返回中文时显示 unicode 编码（\u67e5\u8be2）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#99-%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E6%9C%88%E4%BB%BD%E7%9A%84%E9%A6%96%E6%97%A5%E4%B8%8E%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="toc-number">100.</span> <span class="toc-text">99、获取当前时间月份的首日与最后一天</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#100-xadmin%E5%90%8E%E5%8F%B0%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C"><span class="toc-number">101.</span> <span class="toc-text">100、xadmin 后台批量操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#101-xadmin%E8%BF%87%E6%BB%A4%E5%99%A8%E5%A4%96%E9%94%AE%E6%98%BE%E7%A4%BA%E7%89%B9%E5%AE%9A%E5%80%BC%E6%AF%94%E5%A6%82%E5%8F%AA%E8%83%BD%E8%BF%87%E6%BB%A4%E8%87%AA%E5%B7%B1%E4%B8%8E%E8%B6%85%E7%BA%A7%E7%AE%A1%E7%90%86%E5%91%98%E5%AE%9A%E4%B9%89%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">102.</span> <span class="toc-text">101、xadmin 过滤器外键显示特定值（比如只能过滤自己与超级管理员定义的数据）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#102-django%E4%B8%AD%E7%9A%84csrf%E5%B1%80%E9%83%A8%E7%A6%81%E7%94%A8"><span class="toc-number">103.</span> <span class="toc-text">102、Django 中的 CSRF 局部禁用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#103-%E4%BD%BF%E7%94%A8python%E5%91%BD%E4%BB%A4%E5%88%9B%E5%BB%BAdjango%E9%A1%B9%E7%9B%AE"><span class="toc-number">104.</span> <span class="toc-text">103、使用 python 命令创建 django 项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#104-%E4%BA%8C%E7%BB%B4%E5%88%97%E8%A1%A8-%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E8%A1%8C%E6%B1%82%E5%92%8C%E4%B8%8E%E5%88%97%E6%B1%82%E5%92%8C"><span class="toc-number">105.</span> <span class="toc-text">104、 二维列表、二维数组行求和与列求和</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#105-%E8%8E%B7%E5%8F%96%E6%97%B6%E9%97%B4%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%88%E4%BB%BD%E6%95%B0"><span class="toc-number">106.</span> <span class="toc-text">105、获取时间字符串的月份数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#106-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E8%B6%B3%E8%A1%A5%E9%9B%B6"><span class="toc-number">107.</span> <span class="toc-text">106、字符串不足补零</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#107-%E6%97%B6%E9%97%B4%E6%88%B3%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%A5%E6%9C%9F"><span class="toc-number">108.</span> <span class="toc-text">107、时间戳转字符串日期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#108-%E5%88%97%E8%A1%A8%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">109.</span> <span class="toc-text">108、列表转字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#109-pip%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-number">110.</span> <span class="toc-text">109、pip 国内镜像源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#110-python%E6%8A%8A%E6%97%B6%E9%97%B4%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E6%88%90%E5%88%9A%E5%88%9A-1%E5%A4%A9%E5%89%8D-3%E4%B8%AA%E6%9C%88%E5%89%8D-1%E5%B9%B4%E5%89%8D"><span class="toc-number">111.</span> <span class="toc-text">110、python 把时间字符串转换成刚刚、1 天前、3 个月前、1 年前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#111-django%E4%BD%BF%E7%94%A8orm%E6%89%A7%E8%A1%8Csql%E8%AF%AD%E5%8F%A5"><span class="toc-number">112.</span> <span class="toc-text">111、Django 使用 ORM 执行 sql 语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#112-django%E9%80%9A%E8%BF%87%E5%8F%98%E9%87%8F%E5%AD%97%E6%AE%B5%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">113.</span> <span class="toc-text">112、Django 通过变量字段获取数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#113-django%E6%9F%A5%E8%AF%A2%E5%8F%98%E9%87%8F%E5%AD%97%E6%AE%B5-%E6%9B%B4%E6%96%B0%E5%8F%98%E9%87%8F%E5%AD%97%E6%AE%B5"><span class="toc-number">114.</span> <span class="toc-text">113、Django 查询变量字段、更新变量字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#114-vue%E7%94%9F%E6%88%90dist%E6%96%87%E4%BB%B6"><span class="toc-number">115.</span> <span class="toc-text">114、vue 生成 dist 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#115-python%E8%8E%B7%E5%8F%96%E7%94%B5%E8%84%91%E7%A3%81%E7%9B%98-cpu-%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">116.</span> <span class="toc-text">115、python 获取电脑磁盘、CPU、内存使用情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#116-max%E6%AF%94%E8%BE%83%E5%AD%97%E5%85%B8%E5%88%97%E8%A1%A8"><span class="toc-number">117.</span> <span class="toc-text">116、max 比较字典列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#117-django%E6%9F%A5%E8%AF%A2%E8%A1%A8%E7%9A%84%E5%85%B7%E4%BD%93%E5%AD%97%E6%AE%B5"><span class="toc-number">118.</span> <span class="toc-text">117、django 查询表的具体字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#118-mysql%E6%9F%A5%E8%AF%A2%E6%95%B0%E6%8D%AE%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%A2%9E%E5%BA%8F%E5%8F%B7"><span class="toc-number">119.</span> <span class="toc-text">118、MySQL 查询数据添加自增序号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#119-mysql-%E6%97%B6%E9%97%B4%E6%88%AA%E5%8F%96%E5%B9%B4%E6%9C%88%E6%97%A5"><span class="toc-number">120.</span> <span class="toc-text">119、MySQL 时间截取年月日</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#120-%E5%88%97%E8%A1%A8%E5%8F%96%E5%A5%87%E6%95%B0%E4%B8%8B%E6%A0%87%E5%80%BC"><span class="toc-number">121.</span> <span class="toc-text">120、 列表取奇数下标值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#121-%E5%88%97%E8%A1%A8%E5%8F%96%E5%81%B6%E6%95%B0%E4%B8%8B%E6%A0%87%E5%80%BC"><span class="toc-number">122.</span> <span class="toc-text">121、列表取偶数下标值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#122-%E5%88%97%E8%A1%A8%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E5%88%86%E7%B1%BB-%E5%88%86%E7%BB%84"><span class="toc-number">123.</span> <span class="toc-text">122、列表相同元素分类、分组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#123-ubuntu%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7"><span class="toc-number">124.</span> <span class="toc-text">123、ubuntu 切换用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#124-numpy%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%80%E5%88%97"><span class="toc-number">125.</span> <span class="toc-text">124、numpy 二维数组获取某一列</span></a></li></div><div class="related panel pjax" data-title="系列文章"></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="Modesty" data-src="/images/avatar.jpg"><p class="name" itemprop="name">Modesty</p><div class="description" itemprop="description">欢迎来到 Modesty 妄想的 Blog!!!</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">32</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">17</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">5</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hNSi1Nb2Rlc3R5" title="https:&#x2F;&#x2F;github.com&#x2F;HMJ-Modesty"><i class="ic i-github"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item"><a href="/about/" rel="section"><i class="ic i-user"></i>关于</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/2022/08/13/computer-science/AI-learn/AIlearn/Matplotlib%E5%9F%BA%E7%A1%80/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/2022/08/16/computer-science/AI-learn/AIlearn/Numpy%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/note/" title="分类于 二进制杂谈">二进制杂谈</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/note/theme-shoka-doc/" title="分类于 Theme Shoka Documentation">Theme Shoka Documentation</a></div><span><a href="/2020/08/13/computer-science/note/theme-shoka-doc/dependents/" title="Step.1 依赖插件">Step.1 依赖插件</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2013/12/25/no-title/" title="未命名">未命名</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2013/12/24/%E4%B8%AD%E6%96%87%E6%B8%AC%E8%A9%A6/" title="中文測試">中文測試</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/programming-anguage/" title="分类于 编程语言">编程语言</a> <i class="ic i-angle-right"></i> <a href="/categories/programming-anguage/python/" title="分类于 python">python</a> <i class="ic i-angle-right"></i> <a href="/categories/programming-anguage/python/%E7%BB%A7%E6%89%BF%E7%B1%BB/" title="分类于 继承类">继承类</a></div><span><a href="/2022/04/08/programming-anguage/python/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" title="面向对象编程">面向对象编程</a></span></li><li class="item"><div class="breadcrumb"></div><span><span class="exturl" data-url="aHR0cDovL3d3dy5nb29nbGUuY29tLw==" title="Link Post">Link Post<i class="ic i-link-alt"></i></span></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2013/12/24/long-title/" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id.">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam justo turpis, tincidunt ac convallis id.</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/programming-anguage/" title="分类于 编程语言">编程语言</a> <i class="ic i-angle-right"></i> <a href="/categories/programming-anguage/python/" title="分类于 python">python</a> <i class="ic i-angle-right"></i> <a href="/categories/programming-anguage/python/%E5%BC%82%E5%B8%B8/" title="分类于 异常">异常</a> <i class="ic i-angle-right"></i> <a href="/categories/programming-anguage/python/%E5%BC%82%E5%B8%B8/%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" title="分类于 模块和包">模块和包</a></div><span><a href="/2022/08/10/programming-anguage/python/%E5%BC%82%E5%B8%B8-%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" title="异常,模块和包">异常,模块和包</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2022/08/27/computer-science/AI-learn/AIlearn/opencv%E5%9F%BA%E7%A1%80/" title="opencv基础">opencv基础</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/web/" title="分类于 网络安全">网络安全</a> <i class="ic i-angle-right"></i> <a href="/categories/web/bachanglianxi/" title="分类于 靶场练习">靶场练习</a> <i class="ic i-angle-right"></i> <a href="/categories/web/bachanglianxi/sql-labs%E5%85%A8%E9%80%9A%E5%85%B3/" title="分类于 sql-labs 全通关">sql-labs 全通关</a></div><span><a href="/2022/07/29/web/bachanglianxi/sql-labs%E5%85%A8%E9%80%9A%E5%85%B3/" title="sql-labs全通关">sql-labs全通关</a></span></li><li class="item"><div class="breadcrumb"></div><span><a href="/2013/12/24/hello-world/" title="Hello World">Hello World</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2022</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">Modesty @ Yume Shoka</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">171k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">2:35</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"2022/08/16/python组件/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script></body></html>
